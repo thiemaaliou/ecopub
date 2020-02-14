@@ -1,5 +1,7 @@
 {
   "name": "ecopub",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

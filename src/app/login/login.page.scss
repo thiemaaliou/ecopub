@@ -1,0 +1,31 @@
+.login-page{
+  .login-form{
+    padding: 90px 30px;
+    height: 100%;
+  }
+  .login-form .item-input{
+    border: 1px solid #cccccc73;
+    border-radius: 50px;
+    box-shadow: 1px 2px 9px #e1dedecc;
+    margin: 38px 0;
+  }
+  .login-btn{
+    height: 50px;
+  }
+  .logo-section{
+    box-shadow: 1px 1px 6px #ccc;
+  }
+  .main-title{
+    font-weight: 700;
+    font-size: 45px;
+    color: #999;
+  }
+  .forget-password-text{
+    max-height: 30px;
+    position: absolute;
+    bottom: 50px;
+    max-width: calc(100% - 60px);
+    padding: 0;
+    text-align: center;
+  }
+}

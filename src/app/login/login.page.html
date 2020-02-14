@@ -1,0 +1,27 @@
+<ion-content class="login-page">
+  <ion-grid class="login-form">
+    <ion-row>
+      <ion-col class="text-center">
+          <!-- <img class="mx-auto logo-section"[src]="logoUrl"> -->
+          <h4 class="uppercase main-title">Bienvenue</h4>
+      </ion-col>
+    </ion-row>
+    <form class="login-field-form" [formGroup]="loginForm">
+      <ion-item class="item-input">
+        <ion-label position="floating">Email</ion-label>
+        <ion-input formControlName="email"></ion-input>
+      </ion-item>
+      <ion-item class="item-input">
+        <ion-label position="floating">Mot de passe</ion-label>
+        <ion-input formControlName="password"></ion-input>
+      </ion-item>
+    </form>
+
+    <ion-button color="primary" expand="block" class="b-rad-50 login-btn" [disabled]="loginForm.invalid" (click)="login()">
+      <ion-spinner name="crescent" *ngIf="sendingRequest"></ion-spinner>
+      <span *ngIf="!sendingRequest">Connexion</span>
+    </ion-button>
+
+    <ion-title size="small" color="primary" class="forget-password-text">Mot de passe oublié ?</ion-title>
+  </ion-grid>
+</ion-content>
