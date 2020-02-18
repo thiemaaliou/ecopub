@@ -1,18 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { UtilsService } from '../services/utils.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
-  annonce: any = {
-    lat: '',
-    long: ''
+export class HomePage implements OnInit{
+  locations: Array<any> = [];
+  trashUrl: string = environment.assetsUrl+'images/trash.png';
+  constructor(private utilsService: UtilsService) {}
+
+  ngOnInit(){
+    this.getLocations();
   }
-  constructor() {}
-  getCart(){
-    this.annonce.lat = JSON.parse(localStorage.getItem('ecopub-lat'));
-    this.annonce.long = JSON.parse(localStorage.getItem('ecopub-long'));
+  getLocations(){
+    this.utilsService.getLocations().subscribe((resp) => {
+      this.locations = resp['data'];
+    });
   }
 }

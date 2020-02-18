@@ -4,18 +4,72 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      Accueil
+      Ajouter un emplacement
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-list lines="none">
-    <ion-item >
-      <input ngx-google-places-autocomplete [options]='options' #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)"/>
-    </ion-item>
-    <ion-item>
-      <ion-button expand="block" fill="outline" (click)="getCurrentUserPosition()">Position actuelle</ion-button>
-    </ion-item>
-  </ion-list>
+  <ion-slides [options]="slideOptsOne" #slideElm>
+    <ion-slide>
+      <ion-grid class="geolocation-section"  >
+        <ion-row>
+          <ion-col class="text-center" (click)="getCurrentUserPosition()">
+            <img class="mx-auto location-img" [src]="logoUrl">
+            <!-- <i class="material-icons location-icon">location_on</i> -->
+          </ion-col>
+        </ion-row>
+        <ion-row *ngIf="!sendingRequest" (click)="getCurrentUserPosition()">
+          <ion-col  class="text-center">
+            <ion-label class="location-text">Utiliser ma position actuelle</ion-label>
+          </ion-col>
+        </ion-row>
+
+        <ion-row *ngIf="!sendingRequest">
+          <p class="separator w-100"> OU </p>
+          <ion-col class="w-100">
+            <input class="w-100 custom-input" ngx-google-places-autocomplete [options]='options' #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)"/>
+          </ion-col>
+        </ion-row>
+        <ion-row *ngIf="sendingRequest">
+          <ion-spinner name="crescent" class="main-loader mx-auto" color="primary"></ion-spinner>
+        </ion-row>
+      </ion-grid>
+    </ion-slide>
+    <ion-slide>
+      <ion-grid class="result-info">
+
+        <form class="form-control">
+          <ion-row>
+            <ion-label position="fixed">Région</ion-label>
+            <input [(ngModel)]="product.region" name="region" class="custom-input">
+          </ion-row>
+          <ion-row>
+            <ion-label position="fixed">Département</ion-label>
+            <input [(ngModel)]="product.department"  name="department" class="custom-input">
+          </ion-row>
+          <ion-row>
+            <ion-label position="fixed">Commune</ion-label>
+            <input [(ngModel)]="product.city"  name="city" class="custom-input">
+          </ion-row>
+          <ion-row>
+            <ion-label position="fixed">Quartier</ion-label>
+            <input [(ngModel)]="product.town"  name="town" class="custom-input">
+          </ion-row>
+          <ion-row>
+            <ion-label position="fixed">Rue</ion-label>
+            <input [(ngModel)]="product.state" name="state"  class="custom-input">
+          </ion-row>
+          <ion-row>
+          <ion-button class="mx-auto" expand="block" fill="outline" (click)="savePorduct()"><ion-spinner name="crescent" class="main-loader mx-auto" color="primary" *ngIf="sendingRequest"></ion-spinner> Enregistrer</ion-button>
+          </ion-row>
+        </form>
+
+      </ion-grid>
+    </ion-slide>
+  </ion-slides>
+    <!-- <ion-item>
+
+      <ion-button expand="block" fill="outline" >Utiliser la position actuelle</ion-button>
+    </ion-item> -->
 </ion-content>

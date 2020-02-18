@@ -4,24 +4,26 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      List
+      List des clients
     </ion-title>
+    <ion-buttons slot="end" class="add-client" [routerLink]="['/add-client']">
+      <i class="material-icons add-client">control_point</i>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="client-list-page">
   <ion-list>
-    <ion-item *ngFor="let item of items">
-      <ion-icon [name]="item.icon" slot="start"></ion-icon>
-      {{item.title}}
-      <div class="item-note" slot="end">
-        {{item.note}}
-      </div>
-    </ion-item>
+    <ion-item *ngFor="let item of clients" class="client-item">
+      <ion-icon name="ios-business" class="icon-client" slot="start"></ion-icon>
+       <ion-label class="text-client">
+         <h2>{{item?.name}}</h2>
+         <h3>{{item?.address}}</h3>
+         <p>{{item?.phone}} - {{item?.email}}</p>
+       </ion-label>
+       <div class="item-note" slot="end">
+         <i class="material-icons forward-icon" [routerLink]="['/list', item.id]"> keyboard_arrow_right </i>
+       </div>
+     </ion-item>
   </ion-list>
-  <!--
-    <div *ngIf="selectedItem" padding>
-      You navigated here from <b>{{selectedItem.title }}</b>
-    </div>
-  -->
 </ion-content>

@@ -19,17 +19,13 @@ export class AppComponent {
       icon: 'home'
     },
     {
-      title: 'Ajouter un emplacement',
-      url: '/add-product',
+      title: 'Clients',
+      url: '/list',
       icon: 'list'
     },
     {
-      title: 'Paramétrage',
-      url: '#',
-    },
-    {
-      title: 'Ajouter un utilisateur',
-      url: '/list',
+      title: 'Publicités',
+      url: '/pubicities',
       icon: 'list'
     }
   ];

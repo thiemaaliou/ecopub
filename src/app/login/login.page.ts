@@ -21,18 +21,19 @@ export class LoginPage {
 
   login(){
     this.router.navigate(['/home']);
-    // this.sendingRequest = !this.sendingRequest;
-    // this.userService.login(this.loginForm.value).subscribe((resp) => {
-    //   this.sendingRequest = !this.sendingRequest;
-    //   if(resp['code'] == 200 && resp['data'].access_token){
-    //     this.router.navigate(['/home']);
-    //   }else{
-    //     this.utilsService.presentToast("Identifiants non valides ou inexistants");
-    //   }
-    // }, error => {
-    //   this.utilsService.presentToast("Erreur lors de la connexion");
-    //   this.sendingRequest = !this.sendingRequest;
-    // });
+    this.sendingRequest = !this.sendingRequest;
+    this.userService.login(this.loginForm.value).subscribe((resp) => {
+      this.sendingRequest = !this.sendingRequest;
+      if(resp['code'] == 200 && resp['data'].access_token){
+        localStorage.setItem('ecopub-token', resp['data'].access_token);
+        this.router.navigate(['/home']);
+      }else{
+        this.utilsService.presentToast("Identifiants non valides ou inexistants");
+      }
+    }, error => {
+      this.utilsService.presentToast("Erreur lors de la connexion");
+      this.sendingRequest = !this.sendingRequest;
+    });
   }
 
 }

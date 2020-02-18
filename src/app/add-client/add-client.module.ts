@@ -3,9 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
-
-import { ListPage } from './list.page';
-import { ClientDetailPage } from '../client-detail/client-detail.page';
+import { AddClientPage } from '../add-client/add-client.page';
 
 @NgModule({
   imports: [
@@ -15,14 +13,10 @@ import { ClientDetailPage } from '../client-detail/client-detail.page';
     RouterModule.forChild([
       {
         path: '',
-        component: ListPage
-      },
-      {
-        path: ':id',
-        component: ClientDetailPage
+        component: AddClientPage
       }
     ])
   ],
-  declarations: [ListPage, ClientDetailPage]
+  declarations: [AddClientPage]
 })
-export class ListPageModule {}
+export class AddClientPageModule {}

@@ -1,0 +1,25 @@
+<ion-buttons class="back-button" [routerLink]="['/list']" slot="start">
+  <i class="material-icons">keyboard_arrow_left</i>
+</ion-buttons>
+<ion-content class="client-details-page">
+  <div class="header-img">
+    <img [src]="defaultImg" alt="">
+    <div class="overlay-bg"></div>
+    <div class="title">
+      <h4>{{client?.client?.name}}</h4>
+      <ion-label>{{client?.client?.address}} -  {{client?.client?.phone}} - {{client?.client?.email}}</ion-label>
+    </div>
+  </div>
+  <ion-grid>
+    <ion-row>
+      <ion-item  class="client-item" *ngFor="let pub of client?.publicities">
+        <ion-icon name="ios-business" class="icon-client" slot="start"></ion-icon>
+         <ion-label class="text-client">
+           <h2>{{pub?.campaign_name}}</h2>
+           <h3></h3>
+           <p> Du {{pub?.date_start | date}} au {{pub?.date_end}}</p>
+         </ion-label>
+       </ion-item>
+    </ion-row>
+  </ion-grid>
+</ion-content>

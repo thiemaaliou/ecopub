@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Ajouter un client
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-slides [options]="slideOptsOne" #slideElm>
+    <ion-slide>
+      <ion-grid class="result-info">
+        <form class="form-control" #firstStepForm="ngForm">
+          <ion-row>
+            <ion-label position="fixed">Nom</ion-label>
+            <input [(ngModel)]="client.name" name="name" type="string" class="custom-input" required >
+          </ion-row>
+          <ion-row>
+            <ion-label position="fixed">Téléphone</ion-label>
+            <input [(ngModel)]="client.phone"  name="phone" type="number" class="custom-input" required>
+          </ion-row>
+          <ion-row>
+            <ion-label position="fixed">Email</ion-label>
+            <input [(ngModel)]="client.email"  name="email" type="email" class="custom-input" required>
+          </ion-row>
+          <ion-row>
+            <ion-label position="fixed">Adresse</ion-label>
+            <input [(ngModel)]="client.address"  name="address" type="string" class="custom-input" required>
+          </ion-row>
+          <ion-row>
+          <ion-button class="mx-auto" expand="block" fill="outline" (click)="nextStep()" [disabled]="firstStepForm.invalid"> Suivant</ion-button>
+          </ion-row>
+        </form>
+
+      </ion-grid>
+    </ion-slide>
+    <ion-slide>
+      <ion-grid class="result-info">
+
+        <form class="form-control"  #secondStepForm="ngForm">
+          <ion-row>
+            <ion-label position="fixed">Type de client</ion-label>
+            <ion-select value="Type de client" interface="action-sheet" name="client_type" class="custom-input" [(ngModel)]="client.client_type_id" required>
+              <ion-select-option value="enable" *ngFor="let type of clientType" [value]="type.id">{{type?.name}}</ion-select-option>
+            </ion-select>
+          </ion-row>
+          <ion-row>
+            <ion-label position="fixed">Personne référant</ion-label>
+            <input [(ngModel)]="client.referrer"  name="refferer" class="custom-input" required>
+          </ion-row>
+          <ion-row>
+          <ion-button class="mx-auto" expand="block" fill="outline" (click)="saveClient()" [disabled]="secondStepForm.invalid"><ion-spinner name="crescent" class="main-loader mx-auto" color="primary" *ngIf="sendingRequest"></ion-spinner> Enregistrer</ion-button>
+          </ion-row>
+        </form>
+
+      </ion-grid>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

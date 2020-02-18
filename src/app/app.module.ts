@@ -3,15 +3,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { NativeGeocoder} from '@ionic-native/native-geocoder/ngx';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { HTTP } from '@ionic-native/http/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { UserService } from './services/user.service';
 import { Interceptor } from './services/interceptor';
 import { UtilsService } from './services/utils.service';
+import { GeneralService } from './services/general.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,7 +31,10 @@ import { UtilsService } from './services/utils.service';
     SplashScreen,
     UserService,
     UtilsService,
+    GeneralService,
     Geolocation,
+    NativeGeocoder,
+    HTTP,
     {
       provide: HTTP_INTERCEPTORS, useClass: Interceptor, multi: true
     },
