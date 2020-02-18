@@ -14,6 +14,10 @@ export class GeneralService {
       return this.httpClient.post(environment.apiUrl+'clients/all', {}).pipe(response => response);
    }
 
+   getAllPublicities(){
+      return this.httpClient.post(environment.apiUrl+'publicities/all', {}).pipe(response => response);
+   }
+
    getClientDetails(id){
      return this.httpClient.post(environment.apiUrl+'clients/'+id, {}).pipe(response => response);
    }

@@ -20,4 +20,8 @@ export class HomePage implements OnInit{
       this.locations = resp['data'];
     });
   }
+
+  getDataLocation(event){
+    console.log(event);
+  }
 }

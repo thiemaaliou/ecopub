@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      List des Publicités
+    </ion-title>
+    <ion-buttons slot="end" class="add-client" [routerLink]="['/publicities/add']">
+      <i class="material-icons add-client">control_point</i>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="client-list-page">
+  <ion-list>
+    <ion-item *ngFor="let item of publicities" class="client-item">
+      <ion-icon name="ios-business" class="icon-client" slot="start"></ion-icon>
+       <ion-label class="text-client">
+         <h2>{{item?.campaign_name}}</h2>
+         <h3><strong>Durée: </strong>{{item?.period}} mois</h3>
+         <p>{{item?.date_start | date}} - {{item?.date_end | date}}</p>
+       </ion-label>
+       <div class="item-note" slot="end">
+         <i class="material-icons forward-icon"> keyboard_arrow_right </i>
+       </div>
+     </ion-item>
+  </ion-list>
+</ion-content>

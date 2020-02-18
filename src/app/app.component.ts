@@ -4,6 +4,7 @@ import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { environment } from 'src/environments/environment';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -25,7 +26,7 @@ export class AppComponent {
     },
     {
       title: 'Publicités',
-      url: '/pubicities',
+      url: '/publicities',
       icon: 'list'
     }
   ];
@@ -33,7 +34,8 @@ export class AppComponent {
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    private route: Router
   ) {
     this.initializeApp();
   }
@@ -43,5 +45,9 @@ export class AppComponent {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
+  }
+  logout(){
+    localStorage.removeItem('ecopub-token');
+    this.route.navigate(['/']);
   }
 }

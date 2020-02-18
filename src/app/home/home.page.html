@@ -6,7 +6,7 @@
     <ion-title>
       Accueil
     </ion-title>
-    <ion-buttons slot="end" class="add-client" [routerLink]="['/']">
+    <ion-buttons slot="end" class="add-client" [routerLink]="['/add-product']">
       <i class="material-icons add-client">control_point</i>
     </ion-buttons>
   </ion-toolbar>
@@ -16,8 +16,8 @@
   <!-- <ion-item>
     <ion-button expand="block" fill="outline" (click)="getCart()">Voir la carte</ion-button>
   </ion-item> -->
-  <agm-map [restriction]="SN" [latitude]="14.4974012" [longitude]="-14.4523621" [zoom]="8">
-    <agm-marker *ngFor="let loc of locations" [latitude]="loc?.lattitude" [longitude]="loc?.longitude"
+  <agm-map [restriction]="SN" [latitude]="14.4974012" [longitude]="-14.4523621" [zoom]="8" (mapDblClick)="getDataLocation($event)" (mapClick)="getDataLocation($event)">
+    <agm-marker *ngFor="let loc of locations" [latitude]="loc?.lattitude" [longitude]="loc?.longitude" (markerClick)="getDataLocation($event)" (markerDblClick)="getDataLocation($event)"
     [iconUrl]="trashUrl" ></agm-marker>
     <!-- <agm-direction [origin]="origin" [destination]="destination"> </agm-direction> -->
   </agm-map>

@@ -39,29 +39,29 @@
     <ion-slide>
       <ion-grid class="result-info">
 
-        <form class="form-control">
+        <form class="form-control" #addInfoForm="ngForm">
           <ion-row>
             <ion-label position="fixed">Région</ion-label>
-            <input [(ngModel)]="product.region" name="region" class="custom-input">
+            <input [(ngModel)]="product.region" name="region" class="custom-input" type="text" required>
           </ion-row>
           <ion-row>
             <ion-label position="fixed">Département</ion-label>
-            <input [(ngModel)]="product.department"  name="department" class="custom-input">
+            <input [(ngModel)]="product.department"  name="department" class="custom-input" type="text" required>
           </ion-row>
           <ion-row>
             <ion-label position="fixed">Commune</ion-label>
-            <input [(ngModel)]="product.city"  name="city" class="custom-input">
+            <input [(ngModel)]="product.city"  name="city" class="custom-input" type="text" required>
           </ion-row>
           <ion-row>
             <ion-label position="fixed">Quartier</ion-label>
-            <input [(ngModel)]="product.town"  name="town" class="custom-input">
+            <input [(ngModel)]="product.town"  name="town" class="custom-input" type="text" required>
           </ion-row>
           <ion-row>
             <ion-label position="fixed">Rue</ion-label>
-            <input [(ngModel)]="product.state" name="state"  class="custom-input">
+            <input [(ngModel)]="product.state" name="state"  class="custom-input" type="text" required>
           </ion-row>
           <ion-row>
-          <ion-button class="mx-auto" expand="block" fill="outline" (click)="savePorduct()"><ion-spinner name="crescent" class="main-loader mx-auto" color="primary" *ngIf="sendingRequest"></ion-spinner> Enregistrer</ion-button>
+          <ion-button class="mx-auto" expand="block" fill="outline" (click)="savePorduct()" [disabled]="addInfoForm.invalid"><ion-spinner name="crescent" class="main-loader mx-auto" color="primary" *ngIf="sendingRequest"></ion-spinner> Enregistrer</ion-button>
           </ion-row>
         </form>
 

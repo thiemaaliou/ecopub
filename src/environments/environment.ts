@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   assetsUrl: '../assets/',
-  apiUrl: 'http://ecopub.test/api/',
+  apiUrl: 'http://ecopub-api.cin-soft.com/api/',
   apiGoogleKey: 'AIzaSyAwMP4QNMrB3z7ozZAMKOb1sQpk5eKJLFg'
 };
 

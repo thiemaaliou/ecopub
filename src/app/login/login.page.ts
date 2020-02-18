@@ -20,7 +20,7 @@ export class LoginPage {
   constructor(private userService: UserService, private router: Router, private utilsService: UtilsService) {}
 
   login(){
-    this.router.navigate(['/home']);
+    //this.router.navigate(['/home']);
     this.sendingRequest = !this.sendingRequest;
     this.userService.login(this.loginForm.value).subscribe((resp) => {
       this.sendingRequest = !this.sendingRequest;

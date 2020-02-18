@@ -26,6 +26,10 @@ const routes: Routes = [
   {
     path: 'add-client',
     loadChildren: () => import('./add-client/add-client.module').then(m => m.AddClientPageModule)
+  },
+  {
+    path: 'publicities',
+    loadChildren: () => import('./publicities/publicities.module').then(m => m.PublicitiesPageModule)
   }
 ];
 
