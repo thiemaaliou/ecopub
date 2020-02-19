@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 
 import { PublicitiesPage } from './publicities.page';
+import { AddPublicityPage } from './add-publicity/add-publicity.page';
 
 @NgModule({
   imports: [
@@ -18,10 +19,10 @@ import { PublicitiesPage } from './publicities.page';
       },
       {
         path: 'add',
-        component: PublicitiesPage
+        component: AddPublicityPage
       },
     ])
   ],
-  declarations: [PublicitiesPage]
+  declarations: [PublicitiesPage, AddPublicityPage]
 })
 export class PublicitiesPageModule {}

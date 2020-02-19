@@ -7,7 +7,7 @@
       List des clients
     </ion-title>
     <ion-buttons slot="end" class="add-client" [routerLink]="['/add-client']">
-      <i class="material-icons add-client">control_point</i>
+        <ion-icon class="add-client" name="add-circle"></ion-icon>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -22,7 +22,7 @@
          <p>{{item?.phone}} - {{item?.email}}</p>
        </ion-label>
        <div class="item-note" slot="end">
-         <i class="material-icons forward-icon" [routerLink]="['/list', item.id]"> keyboard_arrow_right </i>
+         <ion-icon name="arrow-forward" class="forward-icon" [routerLink]="['/list', item.id]"></ion-icon>
        </div>
      </ion-item>
   </ion-list>

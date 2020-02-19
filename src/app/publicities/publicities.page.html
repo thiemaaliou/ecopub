@@ -7,7 +7,7 @@
       List des Publicités
     </ion-title>
     <ion-buttons slot="end" class="add-client" [routerLink]="['/publicities/add']">
-      <i class="material-icons add-client">control_point</i>
+      <ion-icon class="add-client" name="add-circle"></ion-icon>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -22,7 +22,7 @@
          <p>{{item?.date_start | date}} - {{item?.date_end | date}}</p>
        </ion-label>
        <div class="item-note" slot="end">
-         <i class="material-icons forward-icon"> keyboard_arrow_right </i>
+          <ion-icon name="arrow-forward" class="forward-icon"></ion-icon>
        </div>
      </ion-item>
   </ion-list>

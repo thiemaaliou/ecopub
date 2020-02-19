@@ -8,12 +8,10 @@
     </ion-row>
     <form class="login-field-form" [formGroup]="loginForm">
       <ion-item class="item-input">
-        <ion-label position="floating">Email</ion-label>
-        <ion-input formControlName="email"></ion-input>
+        <ion-input placeholder="Email" formControlName="email" type="email"></ion-input>
       </ion-item>
       <ion-item class="item-input">
-        <ion-label position="floating">Mot de passe</ion-label>
-        <ion-input formControlName="password"></ion-input>
+        <ion-input placeholder="Mot de passe" formControlName="password" type="password"></ion-input>
       </ion-item>
     </form>
 

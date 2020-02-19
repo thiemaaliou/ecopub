@@ -1,0 +1,39 @@
+.welcome-card img {
+  max-height: 35vh;
+  overflow: hidden;
+}
+.location-icon{
+  font-size: 4rem;
+}
+
+.location-img{
+  width: 150px;
+}
+.location-text{
+    font-size: 22px;
+    color: #1f830c;
+    text-transform: uppercase;
+    font-weight: 900;
+}
+.geolocation-section{
+  padding: 90px 30px;
+}
+.result-info{
+      padding: 50px 20px;
+}
+
+.result-info ion-label{
+      font-size: 20px;
+}
+.result-info ion-row{
+      margin: 15px 0;
+}
+.form-control ion-label{
+  text-align: left;
+}
+.separator{
+    margin: auto;
+    padding: 40px 0;
+    font-size: 25px;
+    font-weight: 800;
+}

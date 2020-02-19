@@ -81,7 +81,8 @@ ion-select.custom-input{
   text-align: left;
   line-height: 38px;
 }
-.add-client i{
+.add-client i,
+.add-client{
   font-size: 35px;
   box-shadow: 0px 0px 5px #1dc1b6;
   border-radius: 50%;

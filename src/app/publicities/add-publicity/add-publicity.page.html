@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Ajouter un emplacement
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+      <ion-grid class="result-info">
+        <form class="form-control" #addInfoForm="ngForm">
+          <ion-row>
+            <ion-label position="fixed">Nom de la campagne</ion-label>
+            <input [(ngModel)]="publicity.campaign_name" name="region" class="custom-input" type="text" required>
+          </ion-row>
+          <ion-row>
+            <ion-label position="fixed">Date de  début</ion-label>
+            <ion-datetime  display-timezone="utc" [(ngModel)]="publicity.date_start"  name="date_start" class="custom-input" type="text" required></ion-datetime>
+          </ion-row>
+          <ion-row>
+            <ion-label position="fixed">Date de fin</ion-label>
+            <ion-datetime display-timezone="utc" [(ngModel)]="publicity.date_end"  name="date_end" class="custom-input" type="text" required></ion-datetime>
+          </ion-row>
+          <ion-row>
+            <ion-label position="fixed">Client</ion-label>
+            <ion-select value="Client" interface="action-sheet" name="client_type" class="custom-input" [(ngModel)]="publicity.clients_id" required>
+              <ion-select-option value="enable" *ngFor="let client of clients" [value]="client.id">{{client?.name}}</ion-select-option>
+            </ion-select>
+          </ion-row>
+          <ion-row>
+            <ion-button class="mx-auto" expand="block" fill="outline" (click)="savePublicity()" [disabled]="addInfoForm.invalid"><ion-spinner name="crescent" class="main-loader mx-auto" color="primary" *ngIf="sendingRequest"></ion-spinner> Enregistrer</ion-button>
+          </ion-row>
+        </form>
+      </ion-grid>
+</ion-content>
