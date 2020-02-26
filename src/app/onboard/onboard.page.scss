@@ -1,0 +1,29 @@
+.onboard-page{
+  ion-grid{
+    padding: 25px;
+  }
+  .img{
+    width: 250px;
+  }
+  .title{
+    padding: 20px;
+  }
+  .description{
+    padding-bottom: 30px;
+  }
+  .slides-elm{
+    height: calc(100% - 52px);
+  }
+  .skip{
+    position: absolute;
+    right: 20px;
+    top: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+    z-index: 9;
+  }
+  .next-btn{
+    margin: 0;
+    height: 50px;
+  }
+}

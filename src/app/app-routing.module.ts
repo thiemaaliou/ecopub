@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'onboard',
     pathMatch: 'full'
   },
   {
@@ -30,6 +30,10 @@ const routes: Routes = [
   {
     path: 'publicities',
     loadChildren: () => import('./publicities/publicities.module').then(m => m.PublicitiesPageModule)
+  },
+  {
+    path: 'onboard',
+    loadChildren: () => import('./onboard/onboard.module').then( m => m.OnboardPageModule)
   }
 ];
 
