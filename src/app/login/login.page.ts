@@ -26,7 +26,7 @@ export class LoginPage {
       this.sendingRequest = !this.sendingRequest;
       if(resp['code'] == 200 && resp['data'].access_token){
         localStorage.setItem('ecopub-token', resp['data'].access_token);
-        this.router.navigate(['/home']);
+        this.router.navigate(['/dashboard']);
       }else{
         this.utilsService.presentToast("Identifiants non valides ou inexistants");
       }

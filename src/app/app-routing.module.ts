@@ -34,7 +34,11 @@ const routes: Routes = [
   {
     path: 'onboard',
     loadChildren: () => import('./onboard/onboard.module').then( m => m.OnboardPageModule)
+  },  {
+    path: 'dashboard',
+    loadChildren: () => import('./dashboard/dashboard.module').then( m => m.DashboardPageModule)
   }
+
 ];
 
 @NgModule({

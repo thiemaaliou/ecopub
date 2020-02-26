@@ -1,0 +1,42 @@
+.dashboard-page{
+  .elem-grid{
+    box-shadow: 0 1px 6px 0 rgba(32, 33, 36, .28);
+    border-radius: 5px;
+    background: #fff;
+  }
+  .slide-elm{
+    padding: 5px;
+  }
+  .icon-elm{
+    font-size: 2.1rem;
+    margin: 5px auto;
+  }
+  .elem-grid ion-chip{
+    background: #9cfba3;
+  }
+  .elem-grid .title{
+    margin-top: 0;
+  }
+  .list-product-section .p-icon{
+    background: #d9fb88;
+    padding: 12px;
+    border-radius: 50%;
+    margin-right: 14px;
+  }
+  .list-md {
+    background: transparent;
+  }
+  .products .slide-elm img{
+    max-height: 100px;
+  }
+  .products ion-card{
+    --background: #fff;
+    border-radius: 5px;
+  }
+  .products ion-card-content{
+    padding: 10 0;
+  }
+  .products ion-card-header{
+    padding: 0;
+  }
+}
