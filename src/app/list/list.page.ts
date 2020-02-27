@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GeneralService } from '../services/general.service';
+import { Client } from '../shared/models/client'
 
 @Component({
   selector: 'app-list',
@@ -18,4 +19,7 @@ export class ListPage implements OnInit {
         this.clients = resp['data'];
     });
   }
+  
+ 
+  
 }
