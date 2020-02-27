@@ -1,7 +1,6 @@
 export const message = {
   success: "Ajout effectué avec succès",
   error: "Echec lors de l'ajout",
-
 }
 export const label = {
   title: ["Innover pour mieux servir", "Pour un sénégal propre", "Plus proche de vos clients"],
@@ -22,7 +21,7 @@ export const slideOptsOne = {
 export const SlideHomeOne = {
   slidesPerView: 2.5,
   autoplay: false,
-  spaceBetween: 30,
+  spaceBetween: 10,
 }
 export const SlideHomeCard = {
   slidesPerView: 1.5,

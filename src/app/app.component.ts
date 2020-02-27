@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
+import { AppMenus } from './shared/models/menu';
 
 @Component({
   selector: 'app-root',
@@ -13,23 +14,7 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   defaultAvatar: string = environment.assetsUrl+'images/avatar.png';
-  public appPages = [
-    {
-      title: 'Emplacements',
-      url: '/home',
-      icon: 'home'
-    },
-    {
-      title: 'Clients',
-      url: '/list',
-      icon: 'list'
-    },
-    {
-      title: 'Publicités',
-      url: '/publicities',
-      icon: 'list'
-    }
-  ];
+  public appPages = AppMenus;
 
   constructor(
     private platform: Platform,

@@ -4,9 +4,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
 import { AgmDirectionModule } from 'agm-direction';
 import { GooglePlaceModule } from "ngx-google-places-autocomplete";
+import { ListItemsPage } from './components/list-items/list-items.page';
+import { IonicModule } from '@ionic/angular';
 
 @NgModule({
   imports: [
+    IonicModule,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
@@ -21,8 +24,10 @@ import { GooglePlaceModule } from "ngx-google-places-autocomplete";
     ReactiveFormsModule,
     AgmCoreModule,
     AgmDirectionModule,
-    GooglePlaceModule
+    GooglePlaceModule,
+    ListItemsPage
   ],
-  declarations: []
+  declarations: [ListItemsPage],
+  entryComponents: [ListItemsPage]
 })
 export class SharedModule {}

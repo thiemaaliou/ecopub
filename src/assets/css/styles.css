@@ -67,8 +67,9 @@ ion-select.custom-input{
 }
 .toolbar-background{
   --background: transparent !important;
-  background: transparent;
+   background: transparent;
 }
 .light-background{
   --background: #f7f8f8;
+    background: #f7f8f8;
 }
