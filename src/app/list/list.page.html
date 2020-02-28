@@ -14,16 +14,18 @@
 
 <ion-content class="client-list-page">
   <ion-list>
-    <ion-item *ngFor="let item of clients" class="client-item">
-      <ion-icon name="ios-business" class="icon-client" slot="start"></ion-icon>
+    <ion-item *ngFor="let client of clients" class="client-item">
        <ion-label class="text-client">
-         <h2>{{item?.name}}</h2>
-         <h3>{{item?.address}}</h3>
-         <p>{{item?.phone}} - {{item?.email}}</p>
+         <h2 class="clients">{{client.name}} <span class="right">20000fCFA</span></h2><br>
+         <!-- <p>{{client?.phone}} - {{client?.email}}</p> -->
+         <p class="content">
+           <span class="pub">10 publicités</span>
+           <span class="right-btn">
+             <ion-icon slot="end" name="add" color="success" class="icon-add"></ion-icon>
+            <ion-icon slot="end" name="trash" color="success" class="icon-trash"></ion-icon>
+           </span>
+         </p>
        </ion-label>
-       <div class="item-note" slot="end">
-         <ion-icon name="arrow-forward" class="forward-icon" [routerLink]="['/list', item.id]"></ion-icon>
-       </div>
      </ion-item>
   </ion-list>
 </ion-content>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GeneralService } from '../services/general.service';
-import { Client } from '../shared/models/client'
+
 
 @Component({
   selector: 'app-list',
@@ -21,5 +21,19 @@ export class ListPage implements OnInit {
   }
   
  
+
+ /* listClients: Array<any>=[
+
+    { nomClient : 'i-Tijara', nbProduits : '10'},
+
+    { nomClient : 'i-Tijara', nbProduits : '9' },
+
+    { nomClient : 'i-Tijara', nbProduits : '30' },
+
+    { nomClient : 'i-Tijara', nbProduits : '15' },
+
+    { nomClient : 'i-Tijara', nbProduits : '7' }
+
+  ];*/
   
 }

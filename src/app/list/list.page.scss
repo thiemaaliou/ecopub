@@ -10,8 +10,8 @@
   }
   .client-item{
     //--background: #2fb5ac;
-    height: 80px;
-   margin: 5px 6px 8px 4px;
+    height: 100px;
+   margin: 30px 6px 8px 4px;
    border-radius: 5px;
    box-shadow: 1px 0px 11px 5px #ececec;
   }
@@ -25,4 +25,38 @@
     color: #2fb5ac;
   }
 
+  .right-btn{
+    float : right;
+    font-size: large;
+   
+  }
+
+  .right{
+    float: right;
+    font-size: 15px;
+  }
+
+  .icon-add{
+    padding: 5px;
+  }
+ .icon-trash{
+  margin-left: 20px;
+  padding: 5px;
+
+  }
+ /*.content{
+    margin-top: 15px;
+  }*/
+
+  .clients{
+    margin-top: 15px;
+    font-weight: bold;
+  }
+  ion-icon {
+    border : 2px solid;
+    border-radius: 50%;
+  }
+  /*.pub{
+    margin-top: 10px;
+  }*/
 }
