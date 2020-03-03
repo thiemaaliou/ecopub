@@ -6,6 +6,7 @@ import { AgmDirectionModule } from 'agm-direction';
 import { GooglePlaceModule } from "ngx-google-places-autocomplete";
 import { ListItemsPage } from './components/list-items/list-items.page';
 import { IonicModule } from '@ionic/angular';
+import { AddItemPage } from './components/add-item/add-item.page';
 
 @NgModule({
   imports: [
@@ -27,7 +28,7 @@ import { IonicModule } from '@ionic/angular';
     GooglePlaceModule,
     ListItemsPage
   ],
-  declarations: [ListItemsPage],
-  entryComponents: [ListItemsPage]
+  declarations: [ListItemsPage, AddItemPage],
+  entryComponents: [ListItemsPage, AddItemPage]
 })
 export class SharedModule {}

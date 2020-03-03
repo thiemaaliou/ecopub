@@ -1,0 +1,12 @@
+.add-item-page{
+  padding: 30px;
+  .field-row ion-item{
+    width: 100%;
+    --border-width: 0px !important;
+    --highlight-background: transparent !important;
+  }
+ .btn-bottom{
+   margin-bottom: 50px;
+ }
+
+}
