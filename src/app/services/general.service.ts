@@ -34,4 +34,8 @@ export class GeneralService {
    savePublcity(publicity: Publicity){
       return this.httpClient.post(environment.apiUrl+'publicity/add', publicity).pipe(response => response);
    }
+
+   getSelectList(item){
+     return this.httpClient.get(environment.apiUrl+''+item.url).pipe(response => response);
+   }
 }

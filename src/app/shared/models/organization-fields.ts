@@ -1,32 +1,69 @@
+export class FieldModelBase<T> {
+  value: T;
+  key: string;
+  label: string;
+  required: boolean;
+  order: number;
+  controlType: string;
+  type: string;
+  options: {key: string, value: string}[];
+
+  constructor(options: {
+      value?: T,
+      key?: string,
+      label?: string,
+      required?: boolean,
+      order?: number,
+      controlType?: string,
+      type?: string
+    } = {}) {
+    this.value = options.value;
+    this.key = options.key || '';
+    this.label = options.label || '';
+    this.required = !!options.required;
+    this.order = options.order === undefined ? 1 : options.order;
+    this.controlType = options.controlType || '';
+    this.type = options.type || '';
+  }
+}
+
 export const FieldsOrganization = [
   {
     'label': 'Nom',
     'type': 'text',
-    'model': 'name'
+    'key': 'name',
+    'required': true
   },
   {
     'label': 'Adresse ',
     'type': 'text',
-    'model': 'address'
+    'key': 'address',
+    'required': true
   },
   {
     'label': 'Email ',
     'type': 'text',
-    'model': 'email'
+    'key': 'email',
+    'required': true
   },
   {
     'label': 'Téléphone ',
     'type': 'number',
-    'model': 'phone'
+    'key': 'phone',
+    'required': true
   },
   {
     'label': 'Type d\'organisation',
     'type': 'select',
-    'model': 'organization_type_id'
+    'key': 'organization_type_id',
+    'url': 'organization_type',
+    'method': 'GET',
+    'required': true
   },
   {
     'label': 'Logo ',
     'type': 'image',
-    'model': 'logo'
+    'key': 'logo',
+    'required': true
   }
 ]

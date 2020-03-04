@@ -28,6 +28,7 @@ import { AddItemPage } from './components/add-item/add-item.page';
     GooglePlaceModule,
     ListItemsPage
   ],
+  providers: [],
   declarations: [ListItemsPage, AddItemPage],
   entryComponents: [ListItemsPage, AddItemPage]
 })

@@ -1,23 +1,25 @@
 <ion-content>
   <ion-grid class="add-item-page">
     <h1>Ajouter une organization</h1>
-    <ion-row class="field-row" *ngFor="let field of fields">
-      <ion-item *ngIf="field.type == 'date'">
-        <ion-label position="stacked">{{field?.label}}</ion-label>
-        <ion-datetime></ion-datetime>
-      </ion-item>
+    <form class="add-form" #addItemForm="ngForm">
+        <ion-row class="field-row" *ngFor="let field of fields">
+          <ion-item *ngIf="field?.type == 'date'">
+            <ion-label position="stacked">{{field?.label}}</ion-label>
+            <ion-datetime [(ngModel)]="field.model" [required]="field.required ? true : null" [name]="field.model"></ion-datetime>
+          </ion-item>
 
-      <ion-item *ngIf="field.type == 'select'">
-        <ion-label position="stacked">{{field?.label}}</ion-label>
-        <ion-select>
-          <ion-select-option>No Game Console</ion-select-option>
-        </ion-select>
-      </ion-item>
-      <ion-item *ngIf="field.type == 'text' || field.type == 'number'">
-        <ion-label position="stacked">{{field?.label}}</ion-label>
-        <ion-input [type]="field?.type"></ion-input>
-      </ion-item>
-    </ion-row>
-    <ion-button class="btn-bottom" expand="full" color="primary">Enregistrer</ion-button>
-</ion-grid>
+          <ion-item *ngIf="field?.type == 'select'">
+            <ion-label position="stacked">{{field?.label}}</ion-label>
+            <ion-select [(ngModel)]="field.model" [required]="field.required ? true : null" [name]="field.model">
+              <ion-select-option *ngFor="let item of selectList[field.model] || []">{{item?.name}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item *ngIf="field?.type == 'text' || field?.type == 'number'">
+            <ion-label position="stacked">{{field?.label}}</ion-label>
+            <ion-input [(ngModel)]="field.model" [type]="field?.type" [name]="field.model" [required]="field.required ? true : null"></ion-input>
+          </ion-item>
+        </ion-row>
+        <ion-button class="btn-bottom" expand="full" color="primary" (click)="addItem(addItemForm)">Enregistrer</ion-button>
+      </form>
+    </ion-grid>
 </ion-content>

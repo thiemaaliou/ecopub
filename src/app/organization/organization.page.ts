@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { AddItemPage } from '../shared/components/add-item/add-item.page';
-import { FieldsOrganization } from '../shared/models/organization-fields';
+import { FieldsOrganization, FieldModelBase } from '../shared/models/organization-fields';
+import { FormGroup }  from '@angular/forms';
+import { FormGeneratorService } from '../services/dynamic-form-generator.service';
+import { PopulateFormGroupService } from '../services/populate-formgroup.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-organization',
@@ -16,9 +20,17 @@ export class OrganizationPage implements OnInit {
       field: ["name", "address", "email", "phone", "referer"]
   };
   fields: any = FieldsOrganization;
-  constructor(public modalController: ModalController) { }
+  fieldsForm: FieldModelBase<string>[] = [];
+  form: FormGroup;
+  formFields$: Observable<FieldModelBase<any>[]>;
+  constructor(public modalController: ModalController, private formGenerator: FormGeneratorService,
+              private populateFormGroupService: PopulateFormGroupService) {
+
+    }
 
   ngOnInit() {
+    this.formFields$ = this.populateFormGroupService.getFormFields(this.fields);
+    this.form = this.formGenerator.toFormGroup(this.fieldsForm);
   }
 
   async openModal(){
@@ -29,7 +41,7 @@ export class OrganizationPage implements OnInit {
       mode: 'ios',
       animated: true,
       cssClass: 'custom-modal-add',
-      componentProps: {'fields': this.fields}
+      componentProps: {'fields': this.fields, 'listParams': this.listParams, 'form': this.form}
     });
 
   //  const { data } = await modal.onWillDismiss();
