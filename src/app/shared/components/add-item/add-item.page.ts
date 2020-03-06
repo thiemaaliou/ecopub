@@ -4,6 +4,8 @@ import { GeneralService } from 'src/app/services/general.service';
 import { NgForm, FormGroup } from '@angular/forms';
 import { AlertController } from '@ionic/angular';
 import { FieldModelBase } from '../../models/organization-fields';
+import { UtilsService } from 'src/app/services/utils.service';
+import { message } from 'src/app/helpers/constants';
 
 @Component({
   selector: 'app-add-item',
@@ -15,13 +17,15 @@ export class AddItemPage implements OnInit {
   fields: Array<any> = [];
   selectList: Array<[]> = [];
   @Input() fieldsModels: FieldModelBase<string>;
-  @Input() form: FormGroup;
+  form: FormGroup;
   constructor(private navParams: NavParams, public modalController: ModalController,
-              private generalService: GeneralService, public alertController: AlertController) { }
+              private generalService: GeneralService, public alertController: AlertController,
+              private utilsService: UtilsService) { }
 
   ngOnInit() {
     this.fields = this.navParams.get('fields');
     this.params = this.navParams.get('listParams');
+    this.form = this.navParams.get('form');
     this.getList();
   }
 
@@ -42,31 +46,33 @@ export class AddItemPage implements OnInit {
   }
 
   async  getListValues(field:  any){
-    console.log(field);
     await this.generalService.getSelectList(field).subscribe((resp) => {
-      this.selectList[field.model] =  resp['data'];
+      this.selectList[field.key] =  resp['data'];
     });
   }
-  addItem(form: NgForm){
-    console.log(form, this.fields);
+  addItem(){
+    if(this.form.invalid){
+      this.utilsService.presentToast(message.requiredField);
+      return;
+    }
+    this.presentAlert();
   }
   async presentAlert() {
   const alert = await this.alertController.create({
     header: 'Confirmation',
     subHeader: 'Subtitle',
-    message: 'Voulez-vous vraiment ajouter cet .',
+    message: message.confirmAdd,
     buttons: [
       {
-          text: 'Cancel',
+          text: 'Annuler',
           role: 'cancel',
           cssClass: 'secondary',
           handler: (blah) => {
-            console.log('Confirm Cancel: blah');
           }
         }, {
-          text: 'Okay',
+          text: 'Valider',
           handler: () => {
-            console.log('Confirm Okay');
+            this.processingSave();
           }
         }
     ]
@@ -74,5 +80,16 @@ export class AddItemPage implements OnInit {
 
   await alert.present();
 }
+
+  processingSave(){
+    this.generalService.saveItem(this.form.value, this.params.url).subscribe((resp) =>{
+        if(resp['code'] == 200){
+          this.utilsService.presentToast(message.success);
+          this.dismiss();
+        }else{
+          this.utilsService.presentToast(message.error);
+        }
+    })
+  }
 
 }

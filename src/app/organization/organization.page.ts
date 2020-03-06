@@ -14,7 +14,8 @@ import { Observable } from 'rxjs';
 })
 export class OrganizationPage implements OnInit {
   listParams: any = {
-      url: "organizations",
+      pageTitle: "Ajouer une institution",
+      url: "organization",
       component: "Organizations",
       head: ["Nom", "Adresse", "E-mail", "Téléphone", "Référant"],
       field: ["name", "address", "email", "phone", "referer"]
@@ -25,12 +26,14 @@ export class OrganizationPage implements OnInit {
   formFields$: Observable<FieldModelBase<any>[]>;
   constructor(public modalController: ModalController, private formGenerator: FormGeneratorService,
               private populateFormGroupService: PopulateFormGroupService) {
-
     }
 
   ngOnInit() {
     this.formFields$ = this.populateFormGroupService.getFormFields(this.fields);
-    this.form = this.formGenerator.toFormGroup(this.fieldsForm);
+    this.formFields$.subscribe((resp)=>{
+      this.form = this.formGenerator.toFormGroup(resp);
+    });
+
   }
 
   async openModal(){

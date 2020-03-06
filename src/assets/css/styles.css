@@ -96,3 +96,20 @@ ion-select.custom-input{
   font-size: 1.5rem;
   margin-bottom: 15px;
 }
+
+.page-home .list-md,
+.item-native{
+  background: transparent !important;
+}
+.w-100{
+  width: 100%;
+}
+.pl-18{
+  padding-left: 18px !important;
+}
+.pr-18{
+  padding-right: 18px !important;
+}
+.text-white{
+  color: #fff;
+}

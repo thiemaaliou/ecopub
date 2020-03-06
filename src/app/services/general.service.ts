@@ -38,4 +38,8 @@ export class GeneralService {
    getSelectList(item){
      return this.httpClient.get(environment.apiUrl+''+item.url).pipe(response => response);
    }
+
+   saveItem(data, url){
+     return this.httpClient.post(environment.apiUrl+''+url, data).pipe(response => response);
+   }
 }

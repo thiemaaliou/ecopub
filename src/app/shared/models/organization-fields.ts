@@ -32,25 +32,33 @@ export const FieldsOrganization = [
     'label': 'Nom',
     'type': 'text',
     'key': 'name',
-    'required': true
+    'order': 1,
+    'required': true,
+    'controlType': 'textbox',
   },
   {
     'label': 'Adresse ',
     'type': 'text',
     'key': 'address',
-    'required': true
+    'order': 2,
+    'required': true,
+    'controlType': 'textbox',
   },
   {
     'label': 'Email ',
     'type': 'text',
     'key': 'email',
-    'required': true
+    'order': 3,
+    'required': true,
+    'controlType': 'textbox',
   },
   {
     'label': 'Téléphone ',
     'type': 'number',
     'key': 'phone',
-    'required': true
+    'order': 3,
+    'required': true,
+    'controlType': 'textbox',
   },
   {
     'label': 'Type d\'organisation',
@@ -58,12 +66,16 @@ export const FieldsOrganization = [
     'key': 'organization_type_id',
     'url': 'organization_type',
     'method': 'GET',
-    'required': true
+    'order': 4,
+    'required': true,
+    'controlType': 'dropdown',
   },
   {
     'label': 'Logo ',
     'type': 'image',
     'key': 'logo',
-    'required': true
+    'order': 5,
+    'required': false,
+    'controlType': 'logo',
   }
 ]
