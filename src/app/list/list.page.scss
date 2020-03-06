@@ -49,15 +49,13 @@
   }
  .content{
     margin-top: 20px;
-    --border-width: 0px !important;
-    --highlight-background: transparent !important;
   }
 
   .clients{
     margin-top: 15px;
     font-weight: bold;
   }
-  ion-icon {
+  ion-icon{
     border : 2px solid;
     border-radius: 50%;
   }
@@ -67,9 +65,7 @@
     margin-right: 15px;
   }
  
-  :host(.item-inner){
-    border: none !important;
-  }
+
   /*.pub{
     margin-top: 10px;
   }*/
