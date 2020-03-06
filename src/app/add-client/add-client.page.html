@@ -31,8 +31,13 @@
             <input [(ngModel)]="client.address"  name="address" type="string" class="custom-input" required>
           </ion-row>
           <ion-row>
+            <ion-label position="fixed">Refferer</ion-label>
+            <input [(ngModel)]="client.referrer"  name="referrer" type="string" placeholder="référent" class="custom-input" required>
+          </ion-row>
+          <ion-row>
           <ion-button class="mx-auto" expand="block" fill="outline" (click)="nextStep()" [disabled]="firstStepForm.invalid"> Suivant</ion-button>
           </ion-row>
+
         </form>
 
       </ion-grid>

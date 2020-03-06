@@ -30,7 +30,6 @@ export class AddItemPage implements OnInit {
   }
 
   ionViewDidLoad(){
-    console.log(this.navParams.get('fields'));
   }
 
   dismiss() {
