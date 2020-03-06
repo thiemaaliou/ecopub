@@ -7,3 +7,8 @@
   </ion-toolbar>
 </ion-header>
 <app-list-items [params]="listParams"></app-list-items>
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="openModal()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>

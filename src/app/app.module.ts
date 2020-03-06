@@ -15,6 +15,8 @@ import { UserService } from './services/user.service';
 import { Interceptor } from './services/interceptor';
 import { UtilsService } from './services/utils.service';
 import { GeneralService } from './services/general.service';
+import { FormGeneratorService } from './services/dynamic-form-generator.service';
+import { PopulateFormGroupService } from './services/populate-formgroup.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -34,6 +36,8 @@ import { GeneralService } from './services/general.service';
     GeneralService,
     Geolocation,
     NativeGeocoder,
+    FormGeneratorService,
+    PopulateFormGroupService,
     HTTP,
     {
       provide: HTTP_INTERCEPTORS, useClass: Interceptor, multi: true
