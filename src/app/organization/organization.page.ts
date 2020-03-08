@@ -51,6 +51,9 @@ export class OrganizationPage implements OnInit {
    return await modal.present();
   }
 
+ toggleMenu(){
+
+ }
 
 
 }

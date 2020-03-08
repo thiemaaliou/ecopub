@@ -84,6 +84,7 @@ export class AddItemPage implements OnInit {
     this.generalService.saveItem(this.form.value, this.params.url).subscribe((resp) =>{
         if(resp['code'] == 200){
           this.utilsService.presentToast(message.success);
+          this.form.reset();
           this.dismiss();
         }else{
           this.utilsService.presentToast(message.error);

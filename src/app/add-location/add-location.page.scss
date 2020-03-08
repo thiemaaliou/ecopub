@@ -15,8 +15,18 @@
     text-transform: uppercase;
     font-weight: 900;
 }
-.geolocation-section{
-  padding: 90px 30px;
+.slides-section-container{
+  margin-top: -75px;
+  padding: 20px 40px;
+}
+.geolocation-section,
+.result-info{
+      padding: 10px 15px 50px 15px;
+      background: #fff;
+      border-radius: 13px;
+      box-shadow: 0px 14px 20px 4px #e8ffe8;
+      margin: 5px;
+
 }
 .result-info{
       padding: 50px 20px;

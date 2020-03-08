@@ -3,11 +3,11 @@ import { GeneralService } from '../services/general.service';
 
 
 @Component({
-  selector: 'app-list',
-  templateUrl: 'list.page.html',
-  styleUrls: ['list.page.scss']
+  selector: 'app-clients',
+  templateUrl: 'clients.page.html',
+  styleUrls: ['clients.page.scss']
 })
-export class ListPage implements OnInit {
+export class ClientsPage implements OnInit {
   public clients: Array<any> = [];
   constructor(private cService: GeneralService) {
 
@@ -19,8 +19,8 @@ export class ListPage implements OnInit {
         this.clients = resp['data'];
     });
   }
-  
- 
+
+
 
  /* listClients: Array<any>=[
 
@@ -35,5 +35,5 @@ export class ListPage implements OnInit {
     { nomClient : 'i-Tijara', nbProduits : '7' }
 
   ];*/
-  
+
 }

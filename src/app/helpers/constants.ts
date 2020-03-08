@@ -31,3 +31,7 @@ export const SlideHomeCard = {
   spaceBetween: 10,
   centeredSlides: false
 }
+export const locations = {
+  lat: 14.6937000,
+  long: -17.4440600
+}

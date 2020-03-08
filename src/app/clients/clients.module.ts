@@ -4,8 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 
-import { ListPage } from './list.page';
 import { ClientDetailPage } from '../client-detail/client-detail.page';
+import { ClientsPage } from './clients.page';
 
 @NgModule({
   imports: [
@@ -15,7 +15,7 @@ import { ClientDetailPage } from '../client-detail/client-detail.page';
     RouterModule.forChild([
       {
         path: '',
-        component: ListPage
+        component: ClientsPage
       },
       {
         path: ':id',
@@ -23,6 +23,6 @@ import { ClientDetailPage } from '../client-detail/client-detail.page';
       }
     ])
   ],
-  declarations: [ListPage, ClientDetailPage]
+  declarations: [ClientsPage, ClientDetailPage]
 })
-export class ListPageModule {}
+export class ClientsPageModule {}

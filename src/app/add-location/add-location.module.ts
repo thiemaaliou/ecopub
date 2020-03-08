@@ -4,8 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 
-import { AddProductPage } from './add-product.page';
 import { SharedModule } from '../shared/shared.module';
+import { AddLocationPage } from './add-location.page';
 
 @NgModule({
   imports: [
@@ -16,10 +16,10 @@ import { SharedModule } from '../shared/shared.module';
     RouterModule.forChild([
       {
         path: '',
-        component: AddProductPage
+        component: AddLocationPage
       }
     ])
   ],
-  declarations: [AddProductPage]
+  declarations: [AddLocationPage]
 })
-export class AddProductPageModule {}
+export class AddLocationPageModule {}
