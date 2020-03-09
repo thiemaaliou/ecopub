@@ -1,8 +1,52 @@
-export class Client{
-  name:     string;
-  phone:    number;
-  email:    number;
-  address:    number;
-  referrer:       string;
-  client_type_id:   string;
-}
+export const FieldsClient = [
+  {
+    'label': 'Nom',
+    'type': 'text',
+    'key': 'name',
+    'order': 1,
+    'required': true,
+    'controlType': 'textbox',
+  },
+  {
+    'label': 'Adresse ',
+    'type': 'text',
+    'key': 'address',
+    'order': 2,
+    'required': true,
+    'controlType': 'textbox',
+  },
+  {
+    'label': 'Email ',
+    'type': 'text',
+    'key': 'email',
+    'order': 3,
+    'required': true,
+    'controlType': 'textbox',
+  },
+  {
+    'label': 'Téléphone ',
+    'type': 'number',
+    'key': 'phone',
+    'order': 4,
+    'required': true,
+    'controlType': 'textbox',
+  },
+  {
+    'label': 'Type de client',
+    'type': 'select',
+    'key': 'client_type_id',
+    'url': 'client_type',
+    'method': 'GET',
+    'order': 5,
+    'required': true,
+    'controlType': 'dropdown',
+  },
+  {
+    'label': 'Personne Référant ',
+    'type': 'text',
+    'key': 'referer',
+    'order': 6,
+    'required': true,
+    'controlType': 'textbox',
+  }
+]

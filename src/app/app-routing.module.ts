@@ -20,7 +20,7 @@ const routes: Routes = [
     loadChildren: () => import('./clients/clients.module').then(m => m.ClientsPageModule)
   },
   {
-    path: 'add-product',
+    path: 'add/:url',
     loadChildren: () => import('./add-location/add-location.module').then(m => m.AddLocationPageModule)
   },
   {

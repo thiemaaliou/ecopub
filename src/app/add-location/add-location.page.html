@@ -16,20 +16,20 @@
     <ion-slides [options]="slideOptsOne" #slideElm>
       <ion-slide>
         <ion-grid class="geolocation-section"  >
-          <ion-row>
+          <ion-row *ngIf="url == 'product'">
             <ion-col class="text-center" (click)="getCurrentUserPosition()">
               <img class="mx-auto location-img" [src]="logoUrl">
               <!-- <i class="material-icons location-icon">location_on</i> -->
             </ion-col>
           </ion-row>
-          <ion-row *ngIf="!sendingRequest" (click)="getCurrentUserPosition()">
+          <ion-row *ngIf="!sendingRequest && url == 'product'" (click)="getCurrentUserPosition()">
             <ion-col  class="text-center">
               <ion-label class="location-text">Utiliser ma position actuelle</ion-label>
             </ion-col>
           </ion-row>
 
           <ion-row *ngIf="!sendingRequest">
-            <p class="separator w-100"> OU </p>
+            <p class="separator w-100" *ngIf="url == 'product'"> OU </p>
             <ion-col class="w-100">
               <input class="w-100 custom-input" ngx-google-places-autocomplete [options]='options' #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)"/>
             </ion-col>
@@ -55,11 +55,11 @@
               <ion-label position="fixed">Commune</ion-label>
               <input [(ngModel)]="product.city"  name="city" class="custom-input" type="text" required>
             </ion-row>
-            <ion-row>
+            <ion-row *ngIf="url == 'product'">
               <ion-label position="fixed">Quartier</ion-label>
               <input [(ngModel)]="product.district"  name="town" class="custom-input" type="text" required>
             </ion-row>
-            <ion-row>
+            <ion-row *ngIf="url == 'product'">
               <ion-label position="fixed">Rue</ion-label>
               <input [(ngModel)]="product.street" name="state"  class="custom-input" type="text" required>
             </ion-row>

@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { Client } from '../shared/models/client';
 import { Publicity } from '../shared/models/publicity';
 
 @Injectable({
@@ -27,7 +26,7 @@ export class GeneralService {
      return this.httpClient.get(environment.apiUrl+'client/type/all').pipe(response => response);
    }
 
-   saveClient(client: Client){
+   saveClient(client){
       return this.httpClient.post(environment.apiUrl+'clients/add', client).pipe(response => response);
    }
 
