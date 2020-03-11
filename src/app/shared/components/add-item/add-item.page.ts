@@ -6,7 +6,7 @@ import { AlertController } from '@ionic/angular';
 import { FieldModelBase } from '../../models/organization-fields';
 import { UtilsService } from 'src/app/services/utils.service';
 import { message } from 'src/app/helpers/constants';
-import * as moment from 'moment'
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-add-item',

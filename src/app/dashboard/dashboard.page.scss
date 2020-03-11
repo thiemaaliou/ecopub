@@ -76,8 +76,8 @@
   }
   .img-item{
     border-radius: 50%;
-    border: 1px solid #ccc;
-    background: #d469d075;
+    border: 1px solid rgba(32, 33, 36, .28);
+    box-shadow: 0 1px 6px 0 rgba(32, 33, 36, .28);
   }
   .horizontal-items img{
     max-width: 40px;

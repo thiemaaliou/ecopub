@@ -1,5 +1,10 @@
 export const AppMenus = [
   {
+    title: 'Accueil',
+    url: '/dashboard',
+    icon: 'home'
+  },
+  {
     title: 'Produits',
     url: '/home',
     icon: 'map'
@@ -7,7 +12,7 @@ export const AppMenus = [
   {
     title: 'Publicités',
     url: '/publicities',
-    icon: 'file'
+    icon: 'trash'
   },
   {
       title: 'Clients',

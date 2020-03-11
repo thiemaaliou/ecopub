@@ -48,22 +48,18 @@ export class DashboardPage implements OnInit {
   itemBox: Array<{}> = [
     {
       'title': 'Clients',
-      'url': 'client',
-      'icon': 'slide3.png'
+      'url': '/clients',
+      'icon': 'slide3.png',
+
     },
     {
       'title': 'Structures',
-      'url': 'organization',
+      'url': '/organization',
       'icon': 'slide2.png'
     },
     {
-      'title': 'Emplacements',
-      'url': 'home',
-      'icon': 'location.gif'
-    },
-    {
       'title': 'Produits',
-      'url': 'products',
+      'url': '/home',
       'icon': 'trash.png'
     }
   ];

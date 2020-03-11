@@ -186,14 +186,14 @@
       </ion-list>
   </ion-grid>
   <ion-grid class="first-card-section">
-    <ion-row class="head-card">
+    <!-- <ion-row class="head-card">
       <ion-toolbar>
-        <ion-title>Dépenses</ion-title>
+        <ion-title>Menu</ion-title>
         <ion-label slot="end">20 000 F CFA</ion-label>
       </ion-toolbar>
-    </ion-row>
+    </ion-row> -->
     <ion-row class="ion-align-items-center">
-      <ion-col size="3" class="ion-align-items-center horizontal-items" fixed *ngFor="let item of itemBox">
+      <ion-col size="4" class="ion-align-items-center horizontal-items" fixed *ngFor="let item of itemBox" [routerLink]="item?.url">
         <img src="assets/images/{{item?.icon}}" />
         <h4>{{item?.title}}</h4>
       </ion-col>
@@ -219,7 +219,7 @@
   </ion-grid>
   <ion-grid class="slider-section">
     <ion-list-header class="pl-18 pr-18">
-      <b class="w-100">Produits</b>
+      <b class="w-100">Emplacements</b>
       <ion-icon class="arrow" name="chevron-forward" ></ion-icon>
     </ion-list-header>
     <ion-row class="pl-18 pr-18">
@@ -239,23 +239,3 @@
     </ion-row>
   </ion-grid>
 </ion-content>
-<ion-tabs class="tab-menu">
-  <ion-tab-bar slot="bottom">
-    <ion-tab-button tab="home">
-      <ion-icon name="repeat"></ion-icon>
-      <ion-label>Transfert</ion-label>
-
-    </ion-tab-button>
-
-    <ion-tab-button tab="home">
-      <ion-icon name="home"></ion-icon>
-      <ion-label>Accueil</ion-label>
-    </ion-tab-button>
-
-    <ion-tab-button tab="home">
-      <ion-icon name="phone-portrait"></ion-icon>
-      <ion-label>Credit</ion-label>
-    </ion-tab-button>
-
-  </ion-tab-bar>
-</ion-tabs>
