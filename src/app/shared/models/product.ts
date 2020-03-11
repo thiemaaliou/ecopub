@@ -8,5 +8,6 @@ export class Product{
   city:         string;
   images:       string;
   street:       string;
-  allowed_to:   number;
+  allowed_to?:   number;
+  publicities_id?: number;
 }

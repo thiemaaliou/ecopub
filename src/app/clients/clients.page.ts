@@ -7,6 +7,8 @@ import { ModalController } from '@ionic/angular';
 import { FormGeneratorService } from '../services/dynamic-form-generator.service';
 import { PopulateFormGroupService } from '../services/populate-formgroup.service';
 import { FieldsClient } from '../shared/models/client';
+import { AddItemPage } from '../shared/components/add-item/add-item.page';
+import { UtilsService } from '../services/utils.service';
 
 
 @Component({
@@ -28,7 +30,8 @@ export class ClientsPage implements OnInit {
   form: FormGroup;
   formFields$: Observable<FieldModelBase<any>[]>;
   constructor(public modalController: ModalController, private formGenerator: FormGeneratorService,
-              private populateFormGroupService: PopulateFormGroupService, private gService:  GeneralService) {
+              private populateFormGroupService: PopulateFormGroupService, private gService:  GeneralService,
+              private utilsService: UtilsService) {
 
   }
 
@@ -42,6 +45,30 @@ export class ClientsPage implements OnInit {
         this.clients = resp['data'];
     });
   }
+
+  async openModal(){
+    const modal = await this.modalController.create({
+      component: AddItemPage,
+      showBackdrop: true,
+      keyboardClose: true,
+      mode: 'ios',
+      animated: true,
+      cssClass: 'custom-modal-add',
+      componentProps: {'fields': this.fields, 'listParams': this.listParams, 'form': this.form}
+    });
+
+  modal.onDidDismiss().then((resp) =>{
+    if(resp['data'] != undefined && resp['data']['data'] != undefined){
+      this.clients.push(resp['data']['data']);
+    }
+  })
+   return await modal.present();
+  }
+
+ toggleMenu(){
+   this.utilsService.toggleMenu();
+ }
+
 
 
 }

@@ -6,6 +6,7 @@ import { AlertController } from '@ionic/angular';
 import { FieldModelBase } from '../../models/organization-fields';
 import { UtilsService } from 'src/app/services/utils.service';
 import { message } from 'src/app/helpers/constants';
+import * as moment from 'moment'
 
 @Component({
   selector: 'app-add-item',
@@ -32,9 +33,10 @@ export class AddItemPage implements OnInit {
   ionViewDidLoad(){
   }
 
-  dismiss() {
+  dismiss(data) {
     this.modalController.dismiss({
-      'dismissed': true
+      'dismissed': true,
+      'data': data
     });
   }
   getList(){
@@ -59,8 +61,9 @@ export class AddItemPage implements OnInit {
   async presentAlert() {
   const alert = await this.alertController.create({
     header: 'Confirmation',
-    subHeader: 'Subtitle',
     message: message.confirmAdd,
+    cssClass: 'custom-alert',
+    mode: 'ios',
     buttons: [
       {
           text: 'Annuler',
@@ -81,11 +84,14 @@ export class AddItemPage implements OnInit {
 }
 
   processingSave(){
-    this.generalService.saveItem(this.form.value, this.params.url).subscribe((resp) =>{
+    let d = {...this.form.value};
+    d.date_start = moment(d.date_start).format('YYYY-MM-DD');
+    d.date_end = moment(d.date_end).format('YYYY-MM-DD');
+    this.generalService.saveItem(d, this.params.url).subscribe((resp) =>{
         if(resp['code'] == 200){
           this.utilsService.presentToast(message.success);
           this.form.reset();
-          this.dismiss();
+          this.dismiss(d);
         }else{
           this.utilsService.presentToast(message.error);
         }

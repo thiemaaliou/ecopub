@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, SimpleChange } from '@angular/core';
 import { GeneralService } from 'src/app/services/general.service';
 import { UtilsService } from 'src/app/services/utils.service';
 import { AlertController } from '@ionic/angular';
@@ -15,10 +15,22 @@ export class ListItemsPage implements OnInit {
               private utilsService: UtilsService) { }
 
   ngOnInit() {
+    this.getList();
+  }
+
+  ngOnChanges(changes: SimpleChange) {
+    this.getList();
+  }
+
+  getList(){
     this.generalService.getSelectList(this.params).subscribe((resp) => {
       if(resp['code'] == 200)
         this.dataItems = resp['data'];
     })
+  }
+  
+  showMoreInfos(item){
+
   }
 
 }

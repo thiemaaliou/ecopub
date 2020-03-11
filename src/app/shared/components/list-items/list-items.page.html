@@ -1,11 +1,11 @@
   <ion-list class="list-client">
     <ion-item lines="none" *ngFor="let item of dataItems" class="client-item">
        <ion-label class="text-client">
-         <h2 class="clients">{{item?.name}} <span class="right-price">20000fCFA</span></h2>
+         <h2 class="clients">{{item?.name || item?.campaign_name}} <span class="right-price" *ngIf="item?.name">{{item?.phone}}</span></h2>
          <p class="content">
-           <span class="pub">10 publicités</span>
+           <span class="pub" *ngIf="item?.name">{{item?.address}}</span>
            <span class="right-btn">
-             <ion-icon slot="end" name="alert" color="success" class="icon-add"></ion-icon>
+             <ion-icon slot="end" name="alert" color="success" class="icon-add" (click)="showMoreInfos(item)"></ion-icon>
             <ion-icon slot="end" name="trash" color="success" class="icon-trash"></ion-icon>
            </span>
          </p>

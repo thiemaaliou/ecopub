@@ -35,6 +35,8 @@ export class AddLocationPage implements OnInit{
     centeredSlides: true
   };
   url: string;
+  addPublicity: any;
+  publicities: Array<{}>  = [];
   constructor(private utilsService: UtilsService, private geolocation: Geolocation,
               private userService: UserService, private http: HTTP, private generaleService: GeneralService,
               public alertController: AlertController, private route: ActivatedRoute,) {}
@@ -86,7 +88,6 @@ export class AddLocationPage implements OnInit{
 
 
   public handleAddressChange(event) {
-    console.log(event);
     let result = event.address_components;
     let region = result.find((r) => r.types.indexOf('administrative_area_level_1') != -1);
     let dep = result.find((r) => r.types.indexOf('administrative_area_level_2') != -1);
@@ -144,6 +145,14 @@ export class AddLocationPage implements OnInit{
       this.sendingRequest = !this.sendingRequest;
       this.utilsService.presentToast(message.error);
     });
+  }
+
+  togglePublicityLink(event){
+    console.log(event.detail.checked);
+    this.addPublicity =  event.detail.checked;
+    this.generaleService.getSelectList({'url': 'publicities'}).subscribe((resp) => {
+      this.publicities = resp['data'];
+    })
   }
 
   toggleMenu(){

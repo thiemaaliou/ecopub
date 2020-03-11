@@ -23,10 +23,10 @@ const routes: Routes = [
     path: 'add/:url',
     loadChildren: () => import('./add-location/add-location.module').then(m => m.AddLocationPageModule)
   },
-  {
-    path: 'add-client',
-    loadChildren: () => import('./add-client/add-client.module').then(m => m.AddClientPageModule)
-  },
+  // {
+  //   path: 'add-client',
+  //   loadChildren: () => import('./add-client/add-client.module').then(m => m.AddClientPageModule)
+  // },
   {
     path: 'publicities',
     loadChildren: () => import('./publicities/publicities.module').then(m => m.PublicitiesPageModule)

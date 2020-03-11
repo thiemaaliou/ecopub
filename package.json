@@ -41,6 +41,7 @@
     "cordova-plugin-nativegeocoder": "^3.2.2",
     "cordova-plugin-telerik-imagepicker": "^2.3.3",
     "core-js": "^2.5.4",
+    "moment": "^2.24.0",
     "ngx-google-places-autocomplete": "^2.0.4",
     "rxjs": "~6.5.1",
     "tslib": "^1.9.0",

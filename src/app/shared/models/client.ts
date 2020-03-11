@@ -44,7 +44,7 @@ export const FieldsClient = [
   {
     'label': 'Personne Référant ',
     'type': 'text',
-    'key': 'referer',
+    'key': 'referrer',
     'order': 6,
     'required': true,
     'controlType': 'textbox',

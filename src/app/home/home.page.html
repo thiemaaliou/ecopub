@@ -1,17 +1,17 @@
 <ion-content>
     <ion-icon class="text-white filter-icon toggle-menu" name="menu" (click)="toggleMenu()"></ion-icon>
   <agm-map [restriction]="SN" [latitude]="coordinated.lat" [longitude]="coordinated.long" [zoom]="10" (mapDblClick)="getDataLocation($event)" (mapClick)="getDataLocation($event)">
-    <agm-marker *ngFor="let loc of locations" [latitude]="loc?.lattitude" [longitude]="loc?.longitude" (markerClick)="getDataLocation($event)" (markerDblClick)="getDataLocation($event)"
+    <agm-marker *ngFor="let loc of locations" [animation]="'BOUNCE'" [label]="loc?.district" [title]="loc?.district" [openInfoWindow]="loc?.city" [latitude]="loc?.lattitude" [longitude]="loc?.longitude" (markerClick)="getDataLocation($event, loc)" (markerDblClick)="getDataLocation($event, loc)"
     [iconUrl]="trashUrl" ></agm-marker>
     <!-- <agm-direction [origin]="origin" [destination]="destination"> </agm-direction>  -->
   </agm-map>
 </ion-content>
 <ion-fab vertical="bottom" horizontal="start" slot="fixed" >
-  <ion-fab-button>
+  <ion-fab-button [routerLink]="['/add', 'product']">
     <ion-icon name="add"></ion-icon>
   </ion-fab-button>
-  <ion-fab-list side="top">
+  <!-- <ion-fab-list side="top">
     <ion-fab-button color="primary" [routerLink]="['/add', 'product']"><ion-icon name="trash" ></ion-icon></ion-fab-button>
     <ion-fab-button color="secondary" [routerLink]="['/add', 'location']"><ion-icon name="compass" ></ion-icon></ion-fab-button>
-  </ion-fab-list>
+  </ion-fab-list> -->
 </ion-fab>

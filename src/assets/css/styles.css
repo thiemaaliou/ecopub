@@ -92,7 +92,8 @@ ion-select.custom-input{
   margin-bottom: 25px;
 }
 .custom-modal-add .modal-wrapper .field-row ion-input input,
-.custom-modal-add .modal-wrapper .field-row ion-select{
+.custom-modal-add .modal-wrapper .field-row ion-select,
+.custom-modal-add .modal-wrapper .field-row ion-datetime{
   min-height: 55px;
   border: 1px solid #cccccc52;
   border-radius: 5px;
