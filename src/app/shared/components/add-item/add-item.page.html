@@ -1,0 +1,28 @@
+<ion-content>
+  <ion-grid class="add-item-page">
+    <h4>{{params?.pageTitle}}</h4>
+    <form class="add-form" [formGroup]="form">
+      <ion-row class="field-row" *ngFor="let item of fields">
+
+        <ion-item *ngIf="item.controlType == 'datebox'">
+          <ion-label position="stacked" [attr.for]="item.key">{{item?.label}}</ion-label>
+          <ion-datetime cancelText="Annuler" doneText="Valider" mode="ios" displayFormat="DD/MM/YYYY" [formControlName]="item.key"  [id]="item.key"  [required]="item.required ? true : null"></ion-datetime>
+        </ion-item>
+
+        <ion-item *ngIf="item.controlType == 'dropdown'">
+          <ion-label position="stacked" [attr.for]="item.key">{{item.label}}</ion-label>
+          <ion-select [formControlName]="item.key" [required]="item.required ? true : null" >
+            <ion-select-option *ngFor="let opt of selectList[item.key] || []" [value]="opt.id">{{opt?.name}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item *ngIf="item.controlType == 'textbox'">
+          <ion-label position="stacked" [attr.for]="item.key">{{item.label}}</ion-label>
+          <ion-input [formControlName]="item.key" [id]="item.key" [type]="item.type" [required]="item.required ? true : null"></ion-input>
+        </ion-item>
+
+      </ion-row>
+      <ion-button class="btn-bottom" expand="full" color="primary" (click)="addItem()">Enregistrer</ion-button>
+    </form>
+  </ion-grid>
+</ion-content>

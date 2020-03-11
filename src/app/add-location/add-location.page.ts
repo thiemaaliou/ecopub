@@ -2,19 +2,22 @@ import { Component, ViewChild, OnInit } from '@angular/core';
 import { GooglePlaceDirective } from 'ngx-google-places-autocomplete';
 import { UtilsService } from '../services/utils.service';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
-import { NativeGeocoder, NativeGeocoderOptions } from '@ionic-native/native-geocoder/ngx';
+import {  NativeGeocoderOptions } from '@ionic-native/native-geocoder/ngx';
+import { ActivatedRoute } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { UserService } from '../services/user.service';
 import { HTTP } from '@ionic-native/http/ngx';
-import { IonSlides } from '@ionic/angular';
+import { IonSlides, AlertController } from '@ionic/angular';
 import { Product } from '../shared/models/product';
+import { GeneralService } from '../services/general.service';
+import { message } from '../helpers/constants';
 
 @Component({
-  selector: 'app-add-product',
-  templateUrl: 'add-product.page.html',
-  styleUrls: ['add-product.page.scss'],
+  selector: 'add-location',
+  templateUrl: 'add-location.page.html',
+  styleUrls: ['add-location.page.scss'],
 })
-export class AddProductPage implements OnInit{
+export class AddLocationPage implements OnInit{
   sendingRequest: boolean = false;
   @ViewChild("placesRef", {static: false}) placesRef: GooglePlaceDirective;
   @ViewChild('slideElm', {static: false}) slideElm: IonSlides;
@@ -31,10 +34,16 @@ export class AddProductPage implements OnInit{
     autoplay:false,
     centeredSlides: true
   };
-  constructor(private utilsService: UtilsService, private geolocation: Geolocation, private nativeGeocoder: NativeGeocoder,
-              private userService: UserService, private http: HTTP) {}
+  url: string;
+  addPublicity: any;
+  publicities: Array<{}>  = [];
+  constructor(private utilsService: UtilsService, private geolocation: Geolocation,
+              private userService: UserService, private http: HTTP, private generaleService: GeneralService,
+              public alertController: AlertController, private route: ActivatedRoute,) {}
   ngOnInit(){
-
+    this.route.paramMap.subscribe(params => {
+         this.url = params.get('url');
+      });
   }
 
   ionViewDidLoad(){
@@ -70,8 +79,8 @@ export class AddProductPage implements OnInit{
     this.product.city = commune && commune.address_components ? commune.address_components[0].long_name : '';
     this.product.region = region && region.address_components ? region.address_components[0].long_name : '';
     this.product.department = dep && dep.address_components ? dep.address_components[0].long_name : '';
-    this.product.town = quartier && quartier.address_components ? quartier.address_components[0].long_name : '';
-    this.product.state = rue && rue.address_components ? rue.address_components[0].long_name : '';
+    this.product.district = quartier && quartier.address_components ? quartier.address_components[0].long_name : '';
+    this.product.street = rue && rue.address_components ? rue.address_components[0].long_name : '';
     this.sendingRequest = !this.sendingRequest;
     this.slideElm.lockSwipes(false);
     this.slideElm.slideNext();
@@ -81,36 +90,73 @@ export class AddProductPage implements OnInit{
   public handleAddressChange(event) {
     let result = event.address_components;
     let region = result.find((r) => r.types.indexOf('administrative_area_level_1') != -1);
-    let dep = result.find((r) => r.types.indexOf('locality') != -1);
-    let commune = result.find((r) => r.types.indexOf('sublocality') != -1);
-    let quartier = result.find((r) => r.types.indexOf('sublocality') != -1);
+    let dep = result.find((r) => r.types.indexOf('administrative_area_level_2') != -1);
+    let commune = result.find((r) => r.types.indexOf('sublocality_level_1') != -1);
+    let quartier = result.find((r) => r.types.indexOf('neighborhood') != -1);
     let rue = result.find((r) => r.types.indexOf('route') != -1);
-    this.product.city = commune ? commune.long_name: '';
+    this.product.city = commune ? commune.long_name: event.name;
     this.product.region = region ? region.long_name : '';
     this.product.department = dep ? dep.long_name : '';
-    this.product.town = quartier ? quartier.long_name : '';
-    this.product.state = rue ? rue.long_name : '';
+    this.product.district = quartier ? quartier.long_name : event.name;
+    this.product.street = rue ? rue.long_name : '';
     this.product.lattitude = event.geometry.location.lat();
     this.product.longitude = event.geometry.location.lng();
     this.slideElm.lockSwipes(false);
     this.slideElm.slideNext();
   }
 
-  savePorduct(){
+  async presentAlert() {
+  const alert = await this.alertController.create({
+      header: 'Confirmation',
+      message: message.confirmAdd,
+      cssClass: 'custom-alert',
+      mode: 'ios',
+      buttons: [
+        {
+            text: 'Annuler',
+            role: 'cancel',
+            cssClass: 'secondary',
+            handler: (blah) => {
+            }
+          }, {
+            text: 'Valider',
+            handler: () => {
+              this.saveLocation();
+            }
+          }
+      ]
+    });
+
+    await alert.present();
+  }
+
+  saveLocation(){
     this.sendingRequest = !this.sendingRequest;
     this.product.reference = 'ECOPUB-'+Math.floor(Date.now() / 1000);
-    this.product.location = this.product.region+' '+this.product.department+' '+this.product.state;
-    this.userService.saveProduct(this.product).subscribe((resp) =>{
+    this.generaleService.saveItem(this.product, this.url).subscribe((resp) =>{
       this.sendingRequest = !this.sendingRequest;
         if(resp['code'] == 200){
-          this.utilsService.presentToast('Emplacement ajouté avec succès');
+          this.utilsService.presentToast(message.success);
+          this.product = new Product();
         }else{
-          this.utilsService.presentToast('Erreur lors du traitment de la demande');
+          this.utilsService.presentToast(message.error);
         }
     },error => {
       this.sendingRequest = !this.sendingRequest;
-      this.utilsService.presentToast('Echec de la connexion');
+      this.utilsService.presentToast(message.error);
     });
+  }
+
+  togglePublicityLink(event){
+    console.log(event.detail.checked);
+    this.addPublicity =  event.detail.checked;
+    this.generaleService.getSelectList({'url': 'publicities'}).subscribe((resp) => {
+      this.publicities = resp['data'];
+    })
+  }
+
+  toggleMenu(){
+     this.utilsService.toggleMenu();
   }
 
 }

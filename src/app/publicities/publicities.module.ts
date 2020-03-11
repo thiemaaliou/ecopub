@@ -6,12 +6,14 @@ import { RouterModule } from '@angular/router';
 
 import { PublicitiesPage } from './publicities.page';
 import { AddPublicityPage } from './add-publicity/add-publicity.page';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    SharedModule,
     RouterModule.forChild([
       {
         path: '',

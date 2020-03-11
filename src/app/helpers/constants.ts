@@ -1,6 +1,8 @@
 export const message = {
   success: "Ajout effectué avec succès",
   error: "Echec lors de l'ajout",
+  requiredField: "Veuillez-remplir correctement le formulaire SVP",
+  confirmAdd: "Voulez-vous vraiment ajouter cet élément ?"
 }
 export const label = {
   title: ["Innover pour mieux servir", "Pour un sénégal propre", "Plus proche de vos clients"],
@@ -16,4 +18,20 @@ export const slideOptsOne = {
   slidesPerView: 1,
   autoplay:false,
   centeredSlides: true
-};
+}
+
+export const SlideHomeOne = {
+  slidesPerView: 2.5,
+  autoplay: false,
+  spaceBetween: 10,
+}
+export const SlideHomeCard = {
+  slidesPerView: 1.2,
+  autoplay: false,
+  spaceBetween: 10,
+  centeredSlides: false
+}
+export const locations = {
+  lat: 14.6937000,
+  long: -17.4440600
+}

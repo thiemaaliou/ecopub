@@ -1,0 +1,136 @@
+.dashboard-page{
+  .elem-grid{
+    box-shadow: 0 1px 6px 0 rgba(32, 33, 36, .28);
+    border-radius: 5px;
+    background: #fff;
+  }
+  .slide-elm{
+    padding: 5px;
+  }
+  .icon-elm{
+    font-size: 2.1rem;
+    margin: 5px auto;
+  }
+  .elem-grid ion-chip{
+    background: #9cfba3;
+  }
+  .elem-grid .title{
+    margin-top: 0;
+  }
+  .list-product-section .p-icon{
+    background: #d9fb88;
+    padding: 12px;
+    border-radius: 50%;
+    margin-right: 14px;
+  }
+  .list-md {
+    background: transparent;
+  }
+  .products .slide-elm img{
+    max-height: 100px;
+  }
+  .products ion-card{
+    --background: #fff;
+    border-radius: 5px;
+    margin: 0;
+  }
+  .products ion-card-content{
+    padding: 10 0;
+  }
+  .products ion-card-header{
+    padding: 0;
+  }
+}
+
+.page-home{
+  padding-bottom: 100px;
+  .first-card-section{
+    margin: 20px;
+    -webkit-box-shadow: 0px 29px 21px 0px rgba(218,231,240,1);
+    -moz-box-shadow: 0px 29px 21px 0px rgba(218,231,240,1);
+    box-shadow: 0px 29px 21px 0px rgba(218,231,240,1);
+    border-radius: 8px;
+    margin-top: -45px;
+    background: #fff;
+    .head-card{
+      border-bottom: 1px solid #ccc;
+      padding: 2px 5px;
+      margin-bottom: 5px;
+    }
+  }
+  .header-section{
+    height: 180px;
+    border-bottom-left-radius: 23px;
+    border-bottom-right-radius: 23px;
+    background: -webkit-gradient(to bottom, #008a37bd, #a2f754b5);
+    background: linear-gradient(to bottom, #008a37bd, #a2f754b5);
+  }
+
+  .header-section ion-icon{
+    font-size: 28px;
+  }
+
+  .avatar-user{
+    border: 2px solid #fff;
+    background: #fbb44b;
+  }
+  .img-item{
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    background: #d469d075;
+  }
+  .horizontal-items img{
+    max-width: 40px;
+  }
+  .horizontal-items h4{
+    font-size: 1rem;
+  }
+  .ion-align-items-center {
+      text-align: center;
+  }
+  .first-card-section ion-title{
+    padding: 0 !important;
+    font-size: 1.1rem;
+  }
+  .first-card-section ion-label{
+    font-weight: bolder;
+    font-size: 1.2rem;
+  }
+  .sliding-item-elm{
+    border-radius: 8px;
+    background: -webkit-linear-gradient(to bottom, #008a37bd, #a2f754b5);
+    background: linear-gradient(to bottom, #008a37bd, #a2f754b5);
+    padding: 15px;
+  }
+  .slider-section{
+    padding-bottom: 18px;
+    margin-bottom: 50px;
+  }
+  .slide-elm h3,
+  .slide-elm p{
+    color: #fff;
+  }
+  .slide-elm h3{
+    font-size: 16px;
+    font-weight: 700;
+  }
+  .slider-section .arrow{
+    font-size: 24px;
+  }
+
+  .badge{
+    position: absolute;
+    right: 17px;
+    top: 4px;
+  }
+  ion-list-header{
+    position: relative;
+  }
+
+}
+.tab-menu{
+  height: 50px !important;
+  background: #fff;
+  top: auto !important;
+  z-index: 9999;
+}

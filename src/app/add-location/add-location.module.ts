@@ -4,25 +4,22 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 
-import { ListPage } from './list.page';
-import { ClientDetailPage } from '../client-detail/client-detail.page';
+import { SharedModule } from '../shared/shared.module';
+import { AddLocationPage } from './add-location.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    SharedModule,
     RouterModule.forChild([
       {
         path: '',
-        component: ListPage
-      },
-      {
-        path: ':id',
-        component: ClientDetailPage
+        component: AddLocationPage
       }
     ])
   ],
-  declarations: [ListPage, ClientDetailPage]
+  declarations: [AddLocationPage]
 })
-export class ListPageModule {}
+export class AddLocationPageModule {}

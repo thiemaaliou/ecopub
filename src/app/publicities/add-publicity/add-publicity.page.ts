@@ -2,7 +2,6 @@ import { Component, ViewChild, OnInit } from '@angular/core';
 import { UtilsService } from '../../services/utils.service';
 import { UserService } from '../../services/user.service';
 import { HTTP } from '@ionic-native/http/ngx';
-import { Publicity } from 'src/app/shared/models/publicity';
 import { GeneralService } from 'src/app/services/general.service';
 
 @Component({
@@ -13,7 +12,7 @@ import { GeneralService } from 'src/app/services/general.service';
 
 export class AddPublicityPage implements OnInit{
   sendingRequest: boolean = false;
-  publicity: Publicity = new Publicity();
+  publicity: any;
   clients: Array<any> = [];
   constructor(private utilsService: UtilsService, private gService: GeneralService) {}
 
