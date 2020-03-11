@@ -6,6 +6,7 @@ import { FormGroup }  from '@angular/forms';
 import { FormGeneratorService } from '../services/dynamic-form-generator.service';
 import { PopulateFormGroupService } from '../services/populate-formgroup.service';
 import { Observable } from 'rxjs';
+import { UtilsService } from '../services/utils.service';
 
 @Component({
   selector: 'app-organization',
@@ -25,7 +26,7 @@ export class OrganizationPage implements OnInit {
   form: FormGroup;
   formFields$: Observable<FieldModelBase<any>[]>;
   constructor(public modalController: ModalController, private formGenerator: FormGeneratorService,
-              private populateFormGroupService: PopulateFormGroupService) {
+              private populateFormGroupService: PopulateFormGroupService, private utilsService: UtilsService) {
     }
 
   ngOnInit() {
@@ -51,6 +52,9 @@ export class OrganizationPage implements OnInit {
    return await modal.present();
   }
 
+ toggleMenu(){
+   this.utilsService.toggleMenu();
+ }
 
 
 }

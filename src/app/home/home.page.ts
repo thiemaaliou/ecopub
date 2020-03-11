@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UtilsService } from '../services/utils.service';
 import { environment } from 'src/environments/environment';
+import { locations } from '../helpers/constants';
+import { GeneralService } from '../services/general.service';
 
 @Component({
   selector: 'app-home',
@@ -9,8 +11,9 @@ import { environment } from 'src/environments/environment';
 })
 export class HomePage implements OnInit{
   locations: Array<any> = [];
-  trashUrl: string = environment.assetsUrl+'images/trash.png';
-  constructor(private utilsService: UtilsService) {}
+  trashUrl: string = environment.assetsUrl+'images/map-location2.png';
+  coordinated:  {} = locations;
+  constructor(private utilsService: UtilsService, private gService: GeneralService) {}
 
   ngOnInit(){
     this.getLocations();
@@ -21,7 +24,14 @@ export class HomePage implements OnInit{
     });
   }
 
-  getDataLocation(event){
-    console.log(event);
+  getDataLocation(event: any, location: any){
+    console.log(event, location);
+    location['url'] = 'product';
+    this.gService.getDetailsItem(location).subscribe((resp) => {
+
+    });
+  }
+  toggleMenu(){
+     this.utilsService.toggleMenu();
   }
 }

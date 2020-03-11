@@ -3,28 +3,29 @@ import { GeneralService } from '../services/general.service';
 import { FieldModelBase } from '../shared/models/organization-fields';
 import { FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
+import { ModalController } from '@ionic/angular';
 import { FormGeneratorService } from '../services/dynamic-form-generator.service';
 import { PopulateFormGroupService } from '../services/populate-formgroup.service';
-import { ModalController } from '@ionic/angular';
-import { UtilsService } from '../services/utils.service';
+import { FieldsClient } from '../shared/models/client';
 import { AddItemPage } from '../shared/components/add-item/add-item.page';
-import { FieldsPublicities } from '../shared/models/publicity';
+import { UtilsService } from '../services/utils.service';
+
 
 @Component({
-  selector: 'app-publicities',
-  templateUrl: 'publicities.page.html',
-  styleUrls: ['publicities.page.scss']
+  selector: 'app-clients',
+  templateUrl: 'clients.page.html',
+  styleUrls: ['clients.page.scss']
 })
-export class PublicitiesPage implements OnInit {
-  public publicities: Array<any> = [];
+export class ClientsPage implements OnInit {
+  public clients: Array<any> = [];
   listParams: any = {
-      pageTitle: "Ajouer une publicité",
-      url: "publicities",
-      component: "publicities",
+      pageTitle: "Ajouer un client",
+      url: "clients",
+      component: "clients",
       head: ["Nom", "Adresse", "E-mail", "Téléphone", "Référant"],
       field: ["name", "address", "email", "phone", "referer"]
   };
-  fields: any = FieldsPublicities;
+  fields: any = FieldsClient;
   fieldsForm: FieldModelBase<string>[] = [];
   form: FormGroup;
   formFields$: Observable<FieldModelBase<any>[]>;
@@ -39,11 +40,12 @@ export class PublicitiesPage implements OnInit {
     this.formFields$.subscribe((resp)=>{
       this.form = this.formGenerator.toFormGroup(resp);
     });
-    this.gService.getAllPublicities().subscribe((resp) => {
+    this.gService.getAllClients().subscribe((resp) => {
       if(resp['code'] == 200)
-        this.publicities = resp['data'];
+        this.clients = resp['data'];
     });
   }
+
   async openModal(){
     const modal = await this.modalController.create({
       component: AddItemPage,
@@ -57,7 +59,7 @@ export class PublicitiesPage implements OnInit {
 
   modal.onDidDismiss().then((resp) =>{
     if(resp['data'] != undefined && resp['data']['data'] != undefined){
-      this.publicities.push(resp['data']['data']);
+      this.clients.push(resp['data']['data']);
     }
   })
    return await modal.present();
@@ -66,4 +68,7 @@ export class PublicitiesPage implements OnInit {
  toggleMenu(){
    this.utilsService.toggleMenu();
  }
+
+
+
 }

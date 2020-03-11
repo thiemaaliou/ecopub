@@ -1,11 +1,14 @@
-export const FieldsClient = [
+
+
+export const LocationsFields = [
   {
-    'label': 'Nom',
+    'label': 'Référence',
     'type': 'text',
-    'key': 'name',
+    'key': 'reference',
     'order': 1,
     'required': true,
     'controlType': 'textbox',
+    
   },
   {
     'label': 'Adresse ',
@@ -27,26 +30,26 @@ export const FieldsClient = [
     'label': 'Téléphone ',
     'type': 'number',
     'key': 'phone',
-    'order': 4,
+    'order': 3,
     'required': true,
     'controlType': 'textbox',
   },
   {
-    'label': 'Type de client',
+    'label': 'Type d\'organisation',
     'type': 'select',
-    'key': 'client_type_id',
-    'url': 'client_type',
+    'key': 'organization_type_id',
+    'url': 'organization_type',
     'method': 'GET',
-    'order': 5,
+    'order': 4,
     'required': true,
     'controlType': 'dropdown',
   },
   {
-    'label': 'Personne Référant ',
-    'type': 'text',
-    'key': 'referrer',
-    'order': 6,
-    'required': true,
-    'controlType': 'textbox',
+    'label': 'Logo ',
+    'type': 'image',
+    'key': 'logo',
+    'order': 5,
+    'required': false,
+    'controlType': 'logo',
   }
 ]

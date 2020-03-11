@@ -16,17 +16,17 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
   },
   {
-    path: 'list',
-    loadChildren: () => import('./list/list.module').then(m => m.ListPageModule)
+    path: 'clients',
+    loadChildren: () => import('./clients/clients.module').then(m => m.ClientsPageModule)
   },
   {
-    path: 'add-product',
-    loadChildren: () => import('./add-product/add-product.module').then(m => m.AddProductPageModule)
+    path: 'add/:url',
+    loadChildren: () => import('./add-location/add-location.module').then(m => m.AddLocationPageModule)
   },
-  {
-    path: 'add-client',
-    loadChildren: () => import('./add-client/add-client.module').then(m => m.AddClientPageModule)
-  },
+  // {
+  //   path: 'add-client',
+  //   loadChildren: () => import('./add-client/add-client.module').then(m => m.AddClientPageModule)
+  // },
   {
     path: 'publicities',
     loadChildren: () => import('./publicities/publicities.module').then(m => m.PublicitiesPageModule)

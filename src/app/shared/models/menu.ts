@@ -1,17 +1,17 @@
 export const AppMenus = [
   {
-    title: 'Emplacements',
+    title: 'Produits',
     url: '/home',
     icon: 'map'
   },
   {
     title: 'Publicités',
     url: '/publicities',
-    icon: 'trash'
+    icon: 'file'
   },
   {
       title: 'Clients',
-      url: '/list',
+      url: '/clients',
       icon: 'people'
   },
   {

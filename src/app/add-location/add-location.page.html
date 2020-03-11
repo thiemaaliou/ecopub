@@ -1,0 +1,88 @@
+<ion-content>
+  <ion-grid class="header-section">
+    <ion-list>
+      <ion-list-header class="pl-18 pr-18">
+        <ion-icon class="text-white filter-icon" name="menu" (click)="toggleMenu()"></ion-icon>
+        <ion-label></ion-label>
+        <ion-icon class="text-white notif-icon"  name="notifications-outline"></ion-icon>
+        <ion-badge class="badge">5</ion-badge>
+      </ion-list-header>
+    </ion-list>
+    <ion-row>
+      <h4 class="text-white page-title">Ajouter un {{url == 'location' ? 'emplacement' : 'produit'}}</h4>
+    </ion-row>
+  </ion-grid>
+  <ion-grid class="slides-section-container">
+    <ion-slides [options]="slideOptsOne" #slideElm>
+      <ion-slide>
+        <ion-grid class="geolocation-section"  >
+          <ion-row>
+            <ion-col class="text-center" (click)="getCurrentUserPosition()">
+              <img class="mx-auto location-img" [src]="logoUrl">
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="!sendingRequest" (click)="getCurrentUserPosition()">
+            <ion-col  class="text-center">
+              <ion-label class="location-text">Utiliser ma position actuelle</ion-label>
+            </ion-col>
+          </ion-row>
+
+          <ion-row *ngIf="!sendingRequest">
+            <p class="separator w-100"> OU </p>
+            <ion-col class="w-100">
+              <input class="w-100 custom-input" ngx-google-places-autocomplete [options]='options' #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)"/>
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="sendingRequest">
+            <ion-spinner name="crescent" class="main-loader mx-auto" color="primary"></ion-spinner>
+          </ion-row>
+        </ion-grid>
+      </ion-slide>
+      <ion-slide>
+        <ion-grid class="result-info">
+
+          <form class="form-control" #addInfoForm="ngForm">
+            <ion-row>
+              <ion-label position="fixed">Région</ion-label>
+              <input [(ngModel)]="product.region" name="region" class="custom-input" type="text" required>
+            </ion-row>
+            <ion-row>
+              <ion-label position="fixed">Département</ion-label>
+              <input [(ngModel)]="product.department"  name="department" class="custom-input" type="text" required>
+            </ion-row>
+            <ion-row>
+              <ion-label position="fixed">Commune</ion-label>
+              <input [(ngModel)]="product.city"  name="city" class="custom-input" type="text" required>
+            </ion-row>
+            <ion-row >
+              <ion-label position="fixed">Quartier</ion-label>
+              <input [(ngModel)]="product.district"  name="town" class="custom-input" type="text" required>
+            </ion-row>
+            <ion-row>
+              <ion-label position="fixed">Rue</ion-label>
+              <input [(ngModel)]="product.street" name="state"  class="custom-input" type="text" required>
+            </ion-row>
+            <ion-row >
+              <ion-label >Associer à une publicité ?</ion-label>
+              <ion-checkbox mode="ios" (ionChange)="togglePublicityLink($event)"></ion-checkbox>
+            </ion-row>
+            <ion-grid *ngIf="addPublicity">
+              <ion-row *ngIf="url == 'product'">
+                <ion-item>
+                  <ion-label position="fixed">Choisir la publicité</ion-label>
+                  <ion-select value="brown" okText="Valider" cancelText="Annuler" interface="popover" mode="ios" name="publicities_id" [(ngModel)]="product.publicities_id">
+                    <ion-select-option value="brown" *ngFor="let pub of publicities" [value]="pub.id">{{pub?.campaign_name}}</ion-select-option>
+                  </ion-select>
+                </ion-item>
+              </ion-row>
+            </ion-grid>
+            <ion-row>
+            <ion-button class="mx-auto custom-submit-btn" expand="block"  (click)="presentAlert()" [disabled]="addInfoForm.invalid"><ion-spinner name="crescent" class="main-loader mx-auto" color="primary" *ngIf="sendingRequest"></ion-spinner> Enregistrer</ion-button>
+            </ion-row>
+          </form>
+
+        </ion-grid>
+      </ion-slide>
+    </ion-slides>
+  </ion-grid>
+</ion-content>
