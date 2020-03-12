@@ -3,14 +3,9 @@
     <ion-list>
       <ion-list-header class="pl-18 pr-18">
         <ion-icon class="text-white filter-icon" name="menu" (click)="toggleMenu()"></ion-icon>
-        <ion-label></ion-label>
-        <ion-icon class="text-white notif-icon"  name="notifications-outline"></ion-icon>
-        <ion-badge class="badge">5</ion-badge>
+        <ion-label class="text-white page-title">Ajouter un {{url == 'location' ? 'emplacement' : 'produit'}}</ion-label>
       </ion-list-header>
     </ion-list>
-    <ion-row>
-      <h4 class="text-white page-title">Ajouter un {{url == 'location' ? 'emplacement' : 'produit'}}</h4>
-    </ion-row>
   </ion-grid>
   <ion-grid class="slides-section-container">
     <ion-slides [options]="slideOptsOne" #slideElm>
@@ -63,21 +58,17 @@
               <input [(ngModel)]="product.street" name="state"  class="custom-input" type="text" required>
             </ion-row>
             <ion-row >
-              <ion-label >Associer à une publicité ?</ion-label>
-              <ion-checkbox mode="ios" (ionChange)="togglePublicityLink($event)"></ion-checkbox>
+              <ion-checkbox mode="ios" (ionChange)="togglePublicityLink($event)" class="checkbox-icon"></ion-checkbox>
+              <ion-label class="text-link">Associer à une publicité ?</ion-label>
             </ion-row>
-            <ion-grid *ngIf="addPublicity">
-              <ion-row *ngIf="url == 'product'">
-                <ion-item>
-                  <ion-label position="fixed">Choisir la publicité</ion-label>
-                  <ion-select value="brown" okText="Valider" cancelText="Annuler" interface="popover" mode="ios" name="publicities_id" [(ngModel)]="product.publicities_id">
-                    <ion-select-option value="brown" *ngFor="let pub of publicities" [value]="pub.id">{{pub?.campaign_name}}</ion-select-option>
-                  </ion-select>
-                </ion-item>
-              </ion-row>
-            </ion-grid>
+            <ion-row *ngIf="addPublicity" class="custom-field">
+                <ion-label position="fixed">Choisir la publicité</ion-label>
+                <ion-select value="brown" okText="Valider" cancelText="Annuler" interface="popover" mode="ios" name="publicities_id" [(ngModel)]="product.publicities_id">
+                  <ion-select-option value="brown" *ngFor="let pub of publicities" [value]="pub.id">{{pub?.campaign_name}}</ion-select-option>
+                </ion-select>
+            </ion-row>
             <ion-row>
-            <ion-button class="mx-auto custom-submit-btn" expand="block"  (click)="presentAlert()" [disabled]="addInfoForm.invalid"><ion-spinner name="crescent" class="main-loader mx-auto" color="primary" *ngIf="sendingRequest"></ion-spinner> Enregistrer</ion-button>
+              <ion-button class="mx-auto custom-submit-btn" expand="block"  (click)="presentAlert()" [disabled]="addInfoForm.invalid"><ion-spinner name="crescent" class="main-loader mx-auto" color="primary" *ngIf="sendingRequest"></ion-spinner> Enregistrer</ion-button>
             </ion-row>
           </form>
 

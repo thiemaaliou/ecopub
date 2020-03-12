@@ -26,11 +26,12 @@ agm-map{
  .custom-input{
     width: 100%;
     margin: 5px 0;
-    height: 55px;
+    height: 45px;
     border: none;
     background: #ecf3ff;
     padding: 10px;
     border-radius: 5px;
+    font-size: 1rem;
  }
  .label-fixed.sc-ion-label-md-h{
    -ms-flex: 0 0 100%;
@@ -93,17 +94,22 @@ ion-select.custom-input{
 }
 .custom-modal-add .modal-wrapper .field-row ion-input input,
 .custom-modal-add .modal-wrapper .field-row ion-select,
-.custom-modal-add .modal-wrapper .field-row ion-datetime{
-  min-height: 55px;
+.custom-modal-add .modal-wrapper .field-row ion-datetime,
+.custom-field ion-input input,
+.custom-field ion-select,
+.custom-field ion-datetime{
+  min-height: 45px;
   border: 1px solid #cccccc52;
   border-radius: 5px;
   background: #d6eaea5c;
   padding: 2px 10px;
   line-height: 32px;
-  font-size: 1.1rem;
+  font-size: 1rem;
+  width: 100%;
+  overflow: hidden;
 }
 .custom-modal-add .modal-wrapper .field-row ion-label{
-  font-size: 1.5rem;
+  font-size: 1rem;
   margin-bottom: 15px;
 }
 
@@ -155,10 +161,12 @@ ion-select.custom-input{
   background: #fbb44b;
 }
 .page-title{
-  padding: 0 18px 10px 18px;
+  padding: 5px;
   margin-top: 0;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 700;
+  margin-left: 0;
+  width: 100%;
 }
 
 .custom-submit-btn{

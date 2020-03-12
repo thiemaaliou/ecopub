@@ -1,6 +1,6 @@
 <ion-content>
   <ion-grid class="add-item-page">
-    <h4>{{params?.pageTitle}}</h4>
+    <h4 class="title-add-page"><img [src]="backImg" alt="" (click)="dismiss(null)"> <span>{{params?.pageTitle}}</span></h4>
     <form class="add-form" [formGroup]="form">
       <ion-row class="field-row" *ngFor="let item of fields">
 

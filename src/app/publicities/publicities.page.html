@@ -1,49 +1,11 @@
-<!-- <ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>
-      List des Publicités
-    </ion-title>
-    <ion-buttons slot="end" class="add-client" [routerLink]="['/publicities/add']">
-      <ion-icon class="add-client" name="add-circle"></ion-icon>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content class="client-list-page">
-  <ion-list>
-    <ion-item *ngFor="let item of publicities" class="client-item">
-      <ion-icon name="ios-business" class="icon-client" slot="start"></ion-icon>
-       <ion-label class="text-client">
-         <h2>{{item?.campaign_name}}</h2>
-         <h3><strong>Durée: </strong>{{item?.period}} mois</h3>
-         <p>{{item?.date_start | date}} - {{item?.date_end | date}}</p>
-       </ion-label>
-       <div class="item-note" slot="end">
-          <ion-icon name="arrow-forward" class="forward-icon"></ion-icon>
-       </div>
-     </ion-item>
-  </ion-list>
-</ion-content> -->
-
 <ion-content class="list-item-page">
   <ion-grid class="header-section">
     <ion-list>
       <ion-list-header class="pl-18 pr-18">
         <ion-icon class="text-white filter-icon" name="menu" (click)="toggleMenu()"></ion-icon>
-        <ion-label></ion-label>
-        <ion-icon class="text-white notif-icon"  name="notifications-outline"></ion-icon>
-        <ion-badge class="badge">5</ion-badge>
+        <ion-label class="text-white page-title">Publicités</ion-label>
       </ion-list-header>
     </ion-list>
-    <ion-row>
-      <h4 class="text-white page-title">Publicités</h4>
-    </ion-row>
-  </ion-grid>
-  <ion-grid>
-
   </ion-grid>
   <app-list-items [params]="listParams"></app-list-items>
 </ion-content>

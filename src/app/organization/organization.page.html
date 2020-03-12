@@ -4,17 +4,9 @@
     <ion-list>
       <ion-list-header class="pl-18 pr-18">
         <ion-icon class="text-white filter-icon" name="menu" (click)="toggleMenu()"></ion-icon>
-        <ion-label></ion-label>
-        <ion-icon class="text-white notif-icon"  name="notifications-outline"></ion-icon>
-        <ion-badge class="badge">5</ion-badge>
+        <ion-label class="text-white page-title">Institutions</ion-label>
       </ion-list-header>
     </ion-list>
-    <ion-row>
-      <h4 class="text-white page-title">Liste des institutions</h4>
-    </ion-row>
-  </ion-grid>
-  <ion-grid>
-
   </ion-grid>
   <app-list-items [params]="listParams"></app-list-items>
 </ion-content>

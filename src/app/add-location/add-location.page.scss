@@ -16,7 +16,7 @@
     font-weight: 900;
 }
 .slides-section-container{
-  margin-top: -75px;
+  margin-top: -130px;
   padding: 20px 20px;
 }
 .geolocation-section,
@@ -26,10 +26,11 @@
       border-radius: 13px;
       box-shadow: 0px 14px 20px 4px #e8ffe8;
       margin: 5px;
+      width: inherit;
 
 }
 .result-info{
-      padding: 50px 20px;
+    padding: 50px 20px;
 }
 
 .result-info ion-label{
@@ -46,4 +47,13 @@
     padding: 40px 0;
     font-size: 25px;
     font-weight: 800;
+}
+.text-link{
+  padding-left: 35px;
+  font-size: 16px !important;
+  margin-bottom: 10px;
+  margin-top: 5px;
+}
+.checkbox-icon{
+  position: absolute;
 }

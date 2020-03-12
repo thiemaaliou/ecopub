@@ -7,6 +7,7 @@ import { FieldModelBase } from '../../models/organization-fields';
 import { UtilsService } from 'src/app/services/utils.service';
 import { message } from 'src/app/helpers/constants';
 import * as moment from 'moment';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-add-item',
@@ -19,6 +20,7 @@ export class AddItemPage implements OnInit {
   selectList: Array<[]> = [];
   @Input() fieldsModels: FieldModelBase<string>;
   form: FormGroup;
+  backImg: string = environment.assetsUrl+'images/back.png';
   constructor(private navParams: NavParams, public modalController: ModalController,
               private generalService: GeneralService, public alertController: AlertController,
               private utilsService: UtilsService) { }

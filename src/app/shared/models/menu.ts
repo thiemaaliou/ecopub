@@ -20,7 +20,7 @@ export const AppMenus = [
       icon: 'people'
   },
   {
-    title: 'Organisations',
+    title: 'Structures',
     url: '/organization',
     icon: 'business'
   },
