@@ -2,7 +2,11 @@ export const message = {
   success: "Ajout effectué avec succès",
   error: "Echec lors de l'ajout",
   requiredField: "Veuillez-remplir correctement le formulaire SVP",
-  confirmAdd: "Voulez-vous vraiment ajouter cet élément ?"
+  confirmAdd: "Voulez-vous vraiment ajouter cet élément ?",
+  expiryPublicity: 'Publicité Expirée',
+  disponible: 'Produit Disponible',
+  busy: 'Occupation en cours',
+
 }
 export const label = {
   title: ["Innover pour mieux servir", "Pour un sénégal propre", "Plus proche de vos clients"],

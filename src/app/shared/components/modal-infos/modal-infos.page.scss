@@ -1,0 +1,45 @@
+.add-item-page{
+  padding: 30px 0;
+  .field-row ion-item{
+    width: 100%;
+    --border-width: 0px !important;
+    --highlight-background: transparent !important;
+  }
+ .btn-bottom{
+   margin-bottom: 50px;
+ }
+ .title-add-page{
+   margin: -10px 0 25px 0px;
+   img{
+     width: 24px;
+      margin-top: 0px;
+      position: absolute;
+   }
+   span{
+     margin-left: 40px;
+   }
+ }
+.product-container{
+    background-color: #cecece40;
+    padding: 10px;
+     .row-item{
+       font-size: 14px;
+       padding: 5px;
+       .text-right{
+         font-weight: 600;
+       }
+     }
+  }
+  .add-publcity-section,
+  .publcity-section{
+    padding: 10px 10px 50px 10px;
+  }
+  .label-link{
+    margin-bottom: 10px;
+  }
+  .line-item h4,
+  .line-item h5{
+    margin-top: 0;
+  }
+
+}

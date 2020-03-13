@@ -15,33 +15,23 @@ export class DashboardPage implements OnInit {
   slideOpt: any =  SlideHomeCard;
   menus: Array<{}> = [
     {
-      'title': 'Nord foire azur',
-      'url': 'gestion-compte',
+      'title': 'Nord foire ',
+      'url': '/home',
       'icon': ''
     },
     {
       'title': 'Guinaw Rails Sud',
-      'url': 'transfert',
+      'url': '/home',
       'icon': ''
     },
     {
-      'title': 'Patte d\'oie builders',
-      'url': 'credit',
+      'title': 'Patte d\'oie',
+      'url': '/home',
       'icon': ''
     },
     {
       'title': 'Marche Dior',
-      'url': 'transactions',
-      'icon': ''
-    },
-    {
-      'title': 'Croisement PA U22',
-      'url': 'rechargement',
-      'icon': ''
-    },
-    {
-      'title': 'Yoff tongor',
-      'url': 'lier-carte',
+      'url': '/home',
       'icon': ''
     }
   ];
@@ -53,14 +43,14 @@ export class DashboardPage implements OnInit {
 
     },
     {
-      'title': 'Structures',
-      'url': '/organization',
-      'icon': 'slide2.png'
+      'title': 'Publicités',
+      'url': '/publicities',
+      'icon': 'publicity.png'
     },
     {
       'title': 'Produits',
       'url': '/home',
-      'icon': 'trash.png'
+      'icon': 'trash2.png'
     }
   ];
   constructor(private menuController: MenuController) { }

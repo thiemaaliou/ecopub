@@ -1,0 +1,98 @@
+<ion-content>
+  <ion-grid class="add-item-page">
+    <h4 class="title-add-page"><img [src]="backImg" alt="" (click)="dismiss(null)"> <span>{{data?.title}}</span></h4>
+    <ion-grid class="product-container">
+      <ion-row class="row-item">
+        <ion-col size="6" size.md>
+          Référence
+        </ion-col>
+        <ion-col class="text-right" size="6" size.md>
+          {{data?.product?.reference}}
+        </ion-col>
+      </ion-row>
+      <ion-row class="row-item">
+        <ion-col size="6" size.md>
+          Région
+        </ion-col>
+        <ion-col class="text-right" size="6" size.md>
+          {{data?.product?.region}}
+        </ion-col>
+      </ion-row>
+      <ion-row class="row-item">
+        <ion-col size="6" size.md>
+          Département
+        </ion-col>
+        <ion-col class="text-right" size="6" size.md>
+          {{data?.product?.department}}
+        </ion-col>
+      </ion-row>
+      <ion-row class="row-item">
+        <ion-col size="6" size.md>
+          Commune
+        </ion-col>
+        <ion-col class="text-right" size="6" size.md>
+          {{data?.product?.city}}
+        </ion-col>
+      </ion-row>
+      <ion-row class="row-item">
+        <ion-col size="6" size.md>
+          Quartier
+        </ion-col>
+        <ion-col class="text-right" size="6" size.md>
+          {{data?.product?.district}}
+        </ion-col>
+      </ion-row>
+      <ion-row class="row-item">
+        <ion-col size="6" size.md>
+          Rue
+        </ion-col>
+        <ion-col size="6" class="text-right" size.md>
+          {{data?.product?.street}}
+        </ion-col>
+      </ion-row>
+      <ion-row class="row-item">
+        <ion-col size="6" size.md>
+           Disponibilité
+        </ion-col>
+        <ion-col size="6" class="text-right" size.md [class.text-busy]="havePub" [class.text-free]="!havePub">
+          {{textDisponibility}}
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid class="publcity-section product-container" *ngIf="havePub">
+      <ion-row class="line-item">
+        <h4 class="w-100">Publicité lié</h4>
+       <h5 class="w-100">{{data?.publicity?.campaign_name}}</h5>
+      </ion-row>
+      <ion-row class="row-item">
+        <ion-col size="6" size.md>
+          Date de début
+        </ion-col>
+        <ion-col class="text-right" size="6" size.md>
+          {{data?.publicity?.date_start | date:'mediumDate'}}
+        </ion-col>
+      </ion-row>
+      <ion-row class="row-item">
+        <ion-col size="6" size.md>
+          Date de fin
+        </ion-col>
+        <ion-col class="text-right" size="6" size.md>
+          {{data?.publicity?.date_end | date:'mediumDate'}}
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid class="add-publcity-section" *ngIf="!havePub">
+      <ion-row>
+        <ion-item class="custom-field w-100" lines="none">
+          <ion-label position="stacked" class="label-link" for="publicity">Lier à une publicité</ion-label>
+          <ion-select [(ngModel)]="data.product.publicities_id" mode="ios" interface="popover">
+            <ion-select-option *ngFor="let p of publicities || []" [value]="p.id">{{p?.campaign_name}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item class="custom-field w-100" lines="none">
+          <ion-button expand="full" color="primary" class="w-100" (click)="updateProduct()">Enregistrer</ion-button>
+        </ion-item>
+      </ion-row>
+    </ion-grid>
+  </ion-grid>
+</ion-content>

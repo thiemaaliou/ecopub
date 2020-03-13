@@ -11,7 +11,7 @@
 
         <ion-item *ngIf="item.controlType == 'dropdown'">
           <ion-label position="stacked" [attr.for]="item.key">{{item.label}}</ion-label>
-          <ion-select [formControlName]="item.key" [required]="item.required ? true : null" >
+          <ion-select [formControlName]="item.key" [required]="item.required ? true : null" mode="ios" interface="popover">
             <ion-select-option *ngFor="let opt of selectList[item.key] || []" [value]="opt.id">{{opt?.name}}</ion-select-option>
           </ion-select>
         </ion-item>

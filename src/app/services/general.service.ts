@@ -41,6 +41,10 @@ export class GeneralService {
      return this.httpClient.post(environment.apiUrl+''+url, data).pipe(response => response);
    }
 
+   updateItem(data, url){
+     return this.httpClient.put(environment.apiUrl+''+url+'/'+data.id, data).pipe(response => response);
+   }
+
    getDetailsItem(item){
      return this.httpClient.get(environment.apiUrl+''+item.url+'/'+item.id).pipe(response => response);
    }

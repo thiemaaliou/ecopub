@@ -10,6 +10,12 @@
 .text-center{
   text-align: center;
 }
+.text-right{
+  text-align: right;
+}
+.text-left{
+  text-align: left;
+}
 .uppercase{
   text-transform: uppercase;
 }
@@ -180,4 +186,10 @@ ion-select.custom-input{
 }
 .custom-alert .alert-wrapper{
   border: 2px solid #008a37bd;
+}
+.text-free{
+  color: #33883b;
+}
+.text-busy{
+  color: #0cd1e8;
 }
