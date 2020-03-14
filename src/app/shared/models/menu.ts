@@ -25,8 +25,8 @@ export const AppMenus = [
     icon: 'business'
   },
   {
-    title: 'Paramétrages',
-    url: '/parameters',
+    title: 'Gestion personnelle',
+    url: '/manager-users',
     icon: 'build'
   }
 ];
