@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpEvent, HttpInterceptor, HttpHandler, HttpRequest} from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { finalize } from "rxjs/operators";
 
 @Injectable()
 export class Interceptor implements HttpInterceptor {
@@ -10,7 +11,6 @@ export class Interceptor implements HttpInterceptor {
      if (request.url.includes('auth') || request.url.includes('maps.googleapis.com')) {
         request = request.clone({
             setHeaders: {
-                //"Content-Type":  "application/json",
                 'Access-Control-Allow-Origin': '*' ,
             }
           });
@@ -22,7 +22,10 @@ export class Interceptor implements HttpInterceptor {
           }
         });
     }
-    return next.handle(request);
+    // return next.handle(request);
+    return next.handle(request).pipe(
+      finalize(() => {})
+    );
   }
 
 }

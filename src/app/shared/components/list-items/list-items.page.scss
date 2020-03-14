@@ -3,6 +3,7 @@
     padding: 10px 5px;
     margin-top: -100px;
     border-radius: 10px;
+    box-shadow: 0 5px 11px 0 rgba(60,64,67,0.302), 0px 7px 9px 4px rgba(60,64,67,0.149);
 }
   .icon-client{
     font-size: 40px;
@@ -15,11 +16,10 @@
 
   }
   .client-item{
-    //--background: #2fb5ac;
-    height: 100px;
    margin: 20px 6px 8px 4px;
    border-radius: 5px;
-   box-shadow: 1px 0px 11px 5px #ececec;
+   //box-shadow: 1px 0px 11px 5px #ececec;
+   box-shadow: 0 1px 2px 0 rgba(60,64,67,0.302), 0 1px 3px 1px rgba(60,64,67,0.149);
   --border-width: 0px !important;
    --highlight-background: transparent !important;
   }
@@ -35,7 +35,7 @@
 
   .right-btn{
     float : right;
-    font-size: large;
+    font-size: medium;
 
   }
 
@@ -53,7 +53,7 @@
 
   }
  .content{
-    margin-top: 20px;
+    margin-top: 5px;
   }
 
   .clients{

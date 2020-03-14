@@ -17,6 +17,7 @@ import { UtilsService } from './services/utils.service';
 import { GeneralService } from './services/general.service';
 import { FormGeneratorService } from './services/dynamic-form-generator.service';
 import { PopulateFormGroupService } from './services/populate-formgroup.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,6 +27,7 @@ import { PopulateFormGroupService } from './services/populate-formgroup.service'
     IonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
+    BrowserAnimationsModule,
 
   ],
   providers: [

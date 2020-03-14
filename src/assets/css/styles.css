@@ -23,9 +23,9 @@
 .item-interactive.ion-valid{
     --highlight-background: transparent;
 }
-.item-interactive.ion-pristine.ion-invalid.ion-touched{
+/* .item-interactive.ion-pristine.ion-invalid.ion-touched{
   box-shadow: 1px 1px 3px 2px #c30606 !important;
-}
+} */
 agm-map{
    height: calc(100vh - 10px);
  }
@@ -192,4 +192,7 @@ ion-select.custom-input{
 }
 .text-busy{
   color: #0cd1e8;
+}
+ion-input input{
+  padding-left: 10px;
 }
