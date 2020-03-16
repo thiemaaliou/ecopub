@@ -55,6 +55,7 @@ export class OrganizationPage implements OnInit {
  toggleMenu(){
    this.utilsService.toggleMenu();
  }
+ 
 
 
 }

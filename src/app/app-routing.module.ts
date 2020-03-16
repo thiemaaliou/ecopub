@@ -41,6 +41,10 @@ const routes: Routes = [
   {
     path: 'organization',
     loadChildren: () => import('./organization/organization.module').then( m => m.OrganizationPageModule)
+  },
+  {
+    path: 'manager-users',
+    loadChildren: () => import('./manager-users/manager-users.module').then( m => m.ManagerUsersPageModule)
   }
 ];
 

@@ -10,6 +10,7 @@ import { IonicModule } from '@ionic/angular';
 import { AddItemPage } from './components/add-item/add-item.page';
 import { ModalInfosPage } from './components/modal-infos/modal-infos.page';
 
+
 @NgModule({
   imports: [
     IonicModule,
@@ -30,6 +31,7 @@ import { ModalInfosPage } from './components/modal-infos/modal-infos.page';
     AgmDirectionModule,
     GooglePlaceModule,
     MatProgressSpinnerModule,
+    ListItemsPage,
   ],
   providers: [],
   declarations: [ListItemsPage, AddItemPage, ModalInfosPage],
