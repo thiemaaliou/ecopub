@@ -151,7 +151,7 @@ ion-select.custom-input{
   margin-bottom: 5px;
 }
 .header-section{
-  height: 180px;
+  height: 116px;
   /* border-bottom-left-radius: 23px;
   border-bottom-right-radius: 23px;
   background: -webkit-gradient(to bottom, #008a37bd, #a2f754b5);
@@ -206,4 +206,7 @@ ion-input input{
 }
 .icon-add{
 color: #0F8E38;
+}
+.white-bg{
+  background: #fff;
 }
