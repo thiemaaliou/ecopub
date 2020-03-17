@@ -196,3 +196,6 @@ ion-select.custom-input{
 ion-input input{
   padding-left: 10px;
 }
+.loader-content mat-progress-spinner{
+  margin: auto;
+}

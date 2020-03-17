@@ -45,6 +45,10 @@ const routes: Routes = [
   {
     path: 'manager-users',
     loadChildren: () => import('./manager-users/manager-users.module').then( m => m.ManagerUsersPageModule)
+  },
+  {
+    path: 'item-details/:id',
+    loadChildren: () => import('./shared/components/item-details/item-details.module').then( m => m.ItemDetailsPageModule)
   }
 ];
 

@@ -1,0 +1,12 @@
+.details-page-item{
+  .border-top{
+    border-top:  4px solid #0F8E38;
+  }
+  .value-item{
+    text-align: right;
+    font-weight: 600;
+  }
+  ion-item ion-label:first-child{
+    margin-right: 0;
+  }
+}

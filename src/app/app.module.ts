@@ -18,7 +18,8 @@ import { GeneralService } from './services/general.service';
 import { FormGeneratorService } from './services/dynamic-form-generator.service';
 import { PopulateFormGroupService } from './services/populate-formgroup.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { NativeStorage } from '@ionic-native/native-storage/ngx';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -28,7 +29,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-
+    MatProgressSpinnerModule
   ],
   providers: [
     StatusBar,
@@ -40,6 +41,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     NativeGeocoder,
     FormGeneratorService,
     PopulateFormGroupService,
+    NativeStorage,
     HTTP,
     {
       provide: HTTP_INTERCEPTORS, useClass: Interceptor, multi: true

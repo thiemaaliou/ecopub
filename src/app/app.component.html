@@ -25,4 +25,11 @@
     </ion-menu>
     <ion-router-outlet id="main-content"></ion-router-outlet>
   </ion-split-pane>
+  <ion-grid class="loader-content" *ngIf="loading">
+      <mat-progress-spinner
+          class="laoder"
+          color="primary"
+          [mode]="'indeterminate'">
+      </mat-progress-spinner>
+  </ion-grid>
 </ion-app>
