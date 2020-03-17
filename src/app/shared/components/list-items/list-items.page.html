@@ -1,16 +1,17 @@
-  <ion-list class="list-client">
+<ion-list class="list-client">
     <ion-item lines="none" *ngFor="let item of dataItems" class="client-item">
-       <ion-label class="text-client">
+       <ion-label class="text-client"> 
          <h4 class="clients">{{item?.name || item?.campaign_name}} </h4>
          <p class="content">
            <span class="pub" *ngIf="item?.name">{{item?.address}}</span>
            <span class="pub" *ngIf="item?.campaign_name">{{item?.date_start | date:'dd/MM/yyyy'}} - </span>
            <span class="pub" *ngIf="item?.campaign_name">{{item?.date_end  | date:'dd/MM/yyyy'}}</span>
            <span class="right-btn">
-             <ion-icon slot="end" name="alert" color="success" class="icon-add" (click)="showMoreInfos(item)"></ion-icon>
-            <ion-icon slot="end" name="trash" color="success" class="icon-trash"></ion-icon>
+             <ion-icon slot="end" name="alert" class="icon-add" (click)="showMoreInfos(item)"></ion-icon>
+            <ion-icon slot="end" name="trash" class="icon-trash"></ion-icon>
            </span>
          </p>
-       </ion-label>
-     </ion-item>
-  </ion-list>
+       </ion-label> 
+    </ion-item>
+</ion-list>
+

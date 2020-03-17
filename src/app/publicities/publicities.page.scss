@@ -1,5 +1,5 @@
 .client-list-page{
-  .icon-client{
+ /* .icon-client{
     font-size: 40px;
     margin-right: 15px;
     margin: 0px 0px 0 -15px;
@@ -7,14 +7,14 @@
     height: 80px;
     padding: 0 15px;
     color: #fff;
-  }
+  }*/
   .client-item{
     //--background: #2fb5ac;
-    height: 80px;
+   height: 80px;
    margin: 5px 6px 8px 4px;
    border-radius: 5px;
    box-shadow: 1px 0px 11px 5px #ececec;
-  }
+  } 
   .text-client{
     margin: 0;
     padding: 0 0 0 10px;
@@ -24,5 +24,8 @@
     font-size: 30px;
     color: #2fb5ac;
   }
-
+ 
 }
+// .list-item-page{
+//   background-image: url("../../assets/images/design.png");
+// }S

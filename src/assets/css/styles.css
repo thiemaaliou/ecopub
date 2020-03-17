@@ -152,10 +152,10 @@ ion-select.custom-input{
 }
 .header-section{
   height: 180px;
-  border-bottom-left-radius: 23px;
+  /* border-bottom-left-radius: 23px;
   border-bottom-right-radius: 23px;
   background: -webkit-gradient(to bottom, #008a37bd, #a2f754b5);
-  background: linear-gradient(to bottom, #008a37bd, #a2f754b5);
+  background: linear-gradient(to bottom, #008a37bd, #a2f754b5); */
 }
 
 .header-section ion-icon{
@@ -198,4 +198,12 @@ ion-input input{
 }
 .loader-content mat-progress-spinner{
   margin: auto;
+}
+.list-item-page {
+  background-image: url("../images/design.png");
+  background-size: 100%;
+
+}
+.icon-add{
+color: #0F8E38;
 }

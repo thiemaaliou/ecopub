@@ -1,23 +1,16 @@
-
 <ion-content class="list-item-page">
   <ion-grid class="header-section">
     <ion-list>
       <ion-list-header class="pl-18 pr-18">
         <ion-icon class="text-white filter-icon" name="menu" (click)="toggleMenu()"></ion-icon>
-        <ion-label></ion-label>
+        <ion-label class="text-white page-title">Liste de clients</ion-label>
       </ion-list-header>
     </ion-list>
-    <ion-row>
-      <h4 class="text-white page-title">Liste des clients</h4>
-    </ion-row>
   </ion-grid>
-  <ion-grid>
-
-  </ion-grid>
- <app-list-items [params]="listParams"></app-list-items>
+  <app-list-items [params]="listParams"></app-list-items>
 </ion-content>
 <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-  <ion-fab-button (click)="openModal()">
-    <ion-icon name="add"></ion-icon>
+  <ion-fab-button (click)="openModal()" color="light">
+    <ion-icon name="add" class="icon-add"></ion-icon>
   </ion-fab-button>
 </ion-fab>
