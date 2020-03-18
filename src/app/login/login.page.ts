@@ -20,18 +20,23 @@ export class LoginPage {
   constructor(private userService: UserService, private router: Router, private utilsService: UtilsService) {}
 
   login(){
-    //this.router.navigate(['/home']);
     this.sendingRequest = !this.sendingRequest;
     this.userService.login(this.loginForm.value).subscribe((resp) => {
       this.sendingRequest = !this.sendingRequest;
       if(resp['code'] == 200 && resp['data'].access_token){
         localStorage.setItem('ecopub-token', resp['data'].access_token);
-        this.router.navigate(['/dashboard']);
+        localStorage.setItem('ecopub-user', JSON.stringify(resp['data'].user));
+        this.utilsService.toggleMenuByUser(resp['data'].user.organization_id);
+        if(resp['data'].user.organization_id == 1){
+          this.router.navigate(['/dashboard']);
+        }else{
+          this.router.navigate(['/home']);
+        }
       }else{
         this.utilsService.presentToast("Identifiants non valides ou inexistants");
       }
     }, error => {
-      this.utilsService.presentToast("Erreur lors de la connexion");
+      this.utilsService.presentToast(error.error.message);
       this.sendingRequest = !this.sendingRequest;
     });
   }

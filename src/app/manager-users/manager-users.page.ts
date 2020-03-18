@@ -20,7 +20,9 @@ export class ManagerUsersPage implements OnInit {
   listParams: any = {
       pageTitle: "Ajouer un utilisateur",
       url: "users",
-      component: "Manage Users",
+      component: "Gestion Utilisateurs",
+      head: ["Prénom", "Nom", "E-mail", "Téléphone", "Adresse"],
+      field: ["first_name", "last_name", "email", "phone", "address"]
   };
   fields: any = FieldsUser;
   fieldsForm: FieldModelBase<string>[] = [];

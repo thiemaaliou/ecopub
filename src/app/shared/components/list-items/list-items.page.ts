@@ -34,9 +34,10 @@ export class ListItemsPage implements OnInit {
   }
 
   showMoreInfos(item){
-    console.log(this.params);
-    item.url = this.params.url;
-    item.component = this.params.component;
+    item = {
+      ...this.params,
+      ...item
+    };
     this.generalService.getDetailsItem(item).subscribe((resp) =>{
       if(resp['code'] == 200){
           item.data = resp['data'];

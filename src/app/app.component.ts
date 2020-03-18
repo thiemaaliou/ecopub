@@ -5,8 +5,9 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
-import { AppMenus } from './shared/models/menu';
+import { AppMenus } from './shared/menus/menu';
 import { UtilsService } from './services/utils.service';
+import { OrganizationMenus } from './shared/menus/organization-menu';
 
 @Component({
   selector: 'app-root',
@@ -15,8 +16,9 @@ import { UtilsService } from './services/utils.service';
 })
 export class AppComponent {
   defaultAvatar: string = environment.assetsUrl+'images/avatar.png';
-  public appPages = AppMenus;
+  public appPages = [];
   loading: boolean = false;
+  user: any = {};
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -32,9 +34,20 @@ export class AppComponent {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
+
     this.utilsService.showLoading.subscribe((resp) =>{
       this.loading = resp;
-    })
+    });
+    
+    this.utilsService.toggleMenuData.subscribe((resp) => {
+      console.log(resp);
+      this.user = JSON.parse(localStorage.getItem('ecopub-user'));
+      if(resp == 1){
+        this.appPages = AppMenus;
+      }else{
+        this.appPages = OrganizationMenus;
+      }
+    });
   }
   logout(){
     localStorage.removeItem('ecopub-token');

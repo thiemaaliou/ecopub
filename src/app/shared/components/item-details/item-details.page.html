@@ -1,4 +1,4 @@
-<ion-content class="details-page-item list-item-page " *ngIf="data?.url != 'publicities'">
+<ion-content class="details-page-item list-item-page " *ngIf="data?.url != 'publicities' && data?.url != 'users'">
   <ion-grid class="header-section">
     <ion-list>
       <ion-list-header class="pl-18 pr-18">
@@ -134,6 +134,36 @@
            </ion-label>
            <ion-label class="value-item">
              {{data?.data?.clients?.phone}}
+           </ion-label>
+         </ion-item>
+       </ion-row>
+     </ion-card-content>
+    </ion-card>
+  </ion-grid>
+</ion-content>
+
+<ion-content class="details-page-item list-item-page " *ngIf="data?.url == 'users'">
+  <ion-grid class="header-section">
+    <ion-list>
+      <ion-list-header class="pl-18 pr-18">
+        <ion-icon class="text-white filter-icon" name="arrow-back" (click)="goBack()"></ion-icon>
+        <ion-label class="text-white page-title">{{data?.component}}</ion-label>
+      </ion-list-header>
+    </ion-list>
+  </ion-grid>
+  <ion-grid class="header-grid" *ngIf="data">
+    <ion-card>
+     <ion-card-header class="border-top text-center">
+       <ion-card-title>{{data?.name}}</ion-card-title>
+     </ion-card-header>
+     <ion-card-content>
+       <ion-row *ngFor="let item of data.head; let i = index">
+         <ion-item class="w-100" lines="none">
+           <ion-label slot="start">
+             {{item}}
+           </ion-label>
+           <ion-label class="value-item">
+             {{data[data.field[i]]}}
            </ion-label>
          </ion-item>
        </ion-row>

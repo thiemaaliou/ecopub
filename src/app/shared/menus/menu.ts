@@ -25,7 +25,7 @@ export const AppMenus = [
     icon: 'business'
   },
   {
-    title: 'Gestion personnelle',
+    title: 'Gestion Utilisateurs',
     url: '/manager-users',
     icon: 'build'
   }

@@ -11,6 +11,7 @@ import { Observable, Subject } from 'rxjs';
 export class UtilsService {
   public showLoading = new Subject<any>();
   public dataComponent: any = new Subject<any>();
+  public toggleMenuData: any = new Subject<any>();
   constructor(public toastController: ToastController, private geolocation: Geolocation, private httpClient: HttpClient, private menuCtrl: MenuController) { }
 
   async presentToast(message: string) {
@@ -46,5 +47,12 @@ export class UtilsService {
 
    getPassedData(){
      return this.dataComponent.asObservable();
+   }
+
+   toggleMenuByUser(org_id: number){
+     this.toggleMenuData.next(org_id);
+   }
+   getMenuByUser(){
+     return this.showLoading.asObservable();
    }
 }
