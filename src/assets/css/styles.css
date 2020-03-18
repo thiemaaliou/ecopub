@@ -207,6 +207,9 @@ ion-input input{
 .icon-add{
 color: #0F8E38;
 }
-.white-bg{
+.white-bg,
+.popover-arrow.sc-ion-popover-ios:after,
+.popover-content{
   background: #fff;
+  --background: #fff;
 }

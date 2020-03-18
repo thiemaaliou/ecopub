@@ -87,8 +87,13 @@ export class AddItemPage implements OnInit {
 
   processingSave(){
     let d = {...this.form.value};
-    d.date_start = moment(d.date_start).format('YYYY-MM-DD');
-    d.date_end = moment(d.date_end).format('YYYY-MM-DD');
+    if(d.date_start){
+      d.date_start = moment(d.date_start).format('YYYY-MM-DD');
+      d.date_end = moment(d.date_end).format('YYYY-MM-DD');
+    }
+    if(d.first_name){
+      d.name = d.first_name+' '+d.last_name;
+    }
     this.generalService.saveItem(d, this.params.url).subscribe((resp) =>{
         if(resp['code'] == 200){
           this.utilsService.presentToast(message.success);

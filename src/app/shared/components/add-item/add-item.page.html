@@ -1,4 +1,4 @@
-<ion-content>
+<ion-content class="bg-white">
   <ion-grid class="add-item-page">
     <h4 class="title-add-page"><img [src]="backImg" alt="" (click)="dismiss(null)"> <span>{{params?.pageTitle}}</span></h4>
     <form class="add-form" [formGroup]="form">
@@ -22,7 +22,7 @@
         </ion-item>
 
       </ion-row>
-      <ion-button class="btn-bottom" expand="full" color="primary" (click)="addItem()">Enregistrer</ion-button>
+      <ion-button class="btn-bottom" expand="full" shape="round" color="primary" (click)="addItem()">Enregistrer</ion-button>
     </form>
   </ion-grid>
 </ion-content>
