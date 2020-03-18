@@ -189,6 +189,7 @@ ion-select.custom-input{
 }
 .text-free{
   color: #33883b;
+ 
 }
 .text-busy{
   color: #0cd1e8;
@@ -209,4 +210,13 @@ color: #0F8E38;
 }
 .white-bg{
   background: #fff;
+}
+.btn-logout{
+  --background : #E84F1C;
+  /*margin-top : 85px;*/
+  position: absolute;
+  bottom: 10px;
+  left: -16px;
+  height: 39px;
+  min-width: 200px;
 }

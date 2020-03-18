@@ -6,8 +6,8 @@
           <ion-row>
            <ion-col class="avatar-container text-center">
              <img class="avatar" [src]="defaultAvatar" alt="Ecopub">
-             <p>Ecopub</p>
-             <p class="logout-text" (click)="logout()">Déconnexion</p>
+             <p class="ecopub">ECOPUB</p>
+             <!-- <p class="logout-text" (click)="logout()">Déconnexion</p> -->
            </ion-col>
          </ion-row>
        </ion-grid>
@@ -21,6 +21,7 @@
             </ion-item>
           </ion-menu-toggle>
         </ion-list>
+        <ion-button size="small" shape="round" (click)="logout()" class="btn-logout"><span class="logout-text">Deconnexion</span></ion-button>
       </ion-content>
     </ion-menu>
     <ion-router-outlet id="main-content"></ion-router-outlet>
