@@ -42,7 +42,7 @@ export const FieldsOrganization = [
     'key': 'address',
     'order': 2,
     'required': true,
-    'controlType': 'textbox',
+    'controlType': 'address',
   },
   {
     'label': 'Email ',
@@ -59,6 +59,24 @@ export const FieldsOrganization = [
     'order': 3,
     'required': true,
     'controlType': 'textbox',
+  }
+  ,
+  {
+    'label': 'Lattitude ',
+    'type': 'number',
+    'key': 'lattitude',
+    'order': 3,
+    'required': true,
+    'controlType': '',
+  }
+  ,
+  {
+    'label': 'Longitude ',
+    'type': 'number',
+    'key': 'longitude',
+    'order': 3,
+    'required': true,
+    'controlType': '',
   },
   {
     'label': 'Type d\'organisation',

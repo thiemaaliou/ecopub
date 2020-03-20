@@ -39,23 +39,25 @@ export class DashboardPage implements OnInit {
     {
       'title': 'Clients',
       'url': '/clients',
-      'icon': 'slide3.png',
+      'icon': 'icon-client.png',
 
     },
     {
       'title': 'Publicités',
       'url': '/publicities',
-      'icon': 'publicity.png'
+      'icon': 'icon-publicity.png'
     },
     {
       'title': 'Produits',
       'url': '/home',
-      'icon': 'trash2.png'
+      'icon': 'icon-trash.png'
     }
   ];
+  user: any;
   constructor(private menuController: MenuController) { }
 
   ngOnInit() {
+    this.user = JSON.parse(localStorage.getItem('ecopub-user'));
   }
 
   toggleMenu(){

@@ -13,7 +13,6 @@ export class ItemDetailsPage implements OnInit {
   constructor(private location: Location) { }
 
   ngOnInit() {
-    console.log(JSON.parse(localStorage.getItem('currentItemEC')));
     this.data = JSON.parse(localStorage.getItem('currentItemEC'));
   }
 

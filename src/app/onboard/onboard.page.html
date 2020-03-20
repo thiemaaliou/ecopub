@@ -1,6 +1,6 @@
 <ion-content class="onboard-page">
   <span class="skip" [routerLink]="['/login']">Passer</span>
-  <ion-slides class="slides-elm" [options]="slideOptsOne" #onBoardSlide>
+  <ion-slides class="slides-elm"  #onBoardSlide>
     <ion-slide *ngFor="let slide of [0,1,2]">
       <ion-grid>
         <h2 class="title">{{label?.title[slide]}}</h2>

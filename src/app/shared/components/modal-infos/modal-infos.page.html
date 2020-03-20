@@ -81,7 +81,7 @@
         </ion-col>
       </ion-row>
     </ion-grid>
-    <ion-grid class="add-publcity-section" *ngIf="!havePub">
+    <ion-grid class="add-publcity-section" *ngIf="!havePub && user.organization_id == 1">
       <ion-row>
         <ion-item class="custom-field w-100" lines="none">
           <ion-label position="stacked" class="label-link" for="publicity">Lier à une publicité</ion-label>

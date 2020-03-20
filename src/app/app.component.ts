@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { Platform } from '@ionic/angular';
+import { Platform, MenuController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { environment } from 'src/environments/environment';
@@ -23,8 +23,9 @@ export class AppComponent {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private route: Router,
-    private utilsService: UtilsService
+    public route: Router,
+    private utilsService: UtilsService,
+    private menu: MenuController
   ) {
     this.initializeApp();
   }
@@ -38,7 +39,7 @@ export class AppComponent {
     this.utilsService.showLoading.subscribe((resp) =>{
       this.loading = resp;
     });
-    
+
     this.utilsService.toggleMenuData.subscribe((resp) => {
       console.log(resp);
       this.user = JSON.parse(localStorage.getItem('ecopub-user'));
@@ -50,6 +51,7 @@ export class AppComponent {
     });
   }
   logout(){
+    this.menu.close();
     localStorage.removeItem('ecopub-token');
     this.route.navigate(['/']);
   }

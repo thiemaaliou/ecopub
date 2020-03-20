@@ -1,7 +1,7 @@
 <ion-content>
     <ion-icon class="text-white filter-icon toggle-menu" name="menu" (click)="toggleMenu()"></ion-icon>
-  <agm-map [restriction]="SN" [latitude]="coordinated.lat" [longitude]="coordinated.long" [zoom]="10" (mapDblClick)="getDataLocation($event)" (mapClick)="getDataLocation($event)">
-    <agm-marker *ngFor="let loc of locations" [animation]="'BOUNCE'" [label]="loc?.district" [title]="loc?.district" [openInfoWindow]="loc?.city" [latitude]="loc?.lattitude" [longitude]="loc?.longitude" (markerClick)="getDataLocation($event, loc)" (markerDblClick)="getDataLocation($event, loc)"
+  <agm-map [restriction]="'SN'" [latitude]="coordinated.lat" [longitude]="coordinated.long" [zoom]="10">
+    <agm-marker *ngFor="let loc of locations" [label]="loc?.district" [title]="loc?.district" [openInfoWindow]="loc?.city" [latitude]="loc?.lattitude" [longitude]="loc?.longitude" (markerClick)="getDataLocation($event, loc)" (markerDblClick)="getDataLocation($event, loc)"
     [iconUrl]="trashUrl" ></agm-marker>
     <!-- <agm-direction [origin]="origin" [destination]="destination"> </agm-direction>  -->
   </agm-map>

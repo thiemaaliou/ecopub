@@ -14,11 +14,13 @@ import { ModalInfosPage } from '../shared/components/modal-infos/modal-infos.pag
 export class HomePage implements OnInit{
   locations: Array<any> = [];
   trashUrl: string = environment.assetsUrl+'images/map-location2.png';
-  coordinated:  {} = locations;
+  coordinated:  any = locations;
+  user: any = {};
   constructor(private utilsService: UtilsService, private gService: GeneralService, public modalController: ModalController) {}
 
   ngOnInit(){
     this.getLocations();
+    this.user = JSON.parse(localStorage.getItem('ecopub-user'));
   }
   getLocations(){
     this.utilsService.getLocations().subscribe((resp) => {

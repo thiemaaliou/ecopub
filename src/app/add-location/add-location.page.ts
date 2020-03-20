@@ -11,6 +11,7 @@ import { IonSlides, AlertController } from '@ionic/angular';
 import { Product } from '../shared/models/product';
 import { GeneralService } from '../services/general.service';
 import { message } from '../helpers/constants';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'add-location',
@@ -39,7 +40,8 @@ export class AddLocationPage implements OnInit{
   publicities: Array<{}>  = [];
   constructor(private utilsService: UtilsService, private geolocation: Geolocation,
               private userService: UserService, private http: HTTP, private generaleService: GeneralService,
-              public alertController: AlertController, private route: ActivatedRoute,) {}
+              public alertController: AlertController, private route: ActivatedRoute,
+              private location: Location) {}
   ngOnInit(){
     this.route.paramMap.subscribe(params => {
          this.url = params.get('url');
@@ -157,6 +159,9 @@ export class AddLocationPage implements OnInit{
 
   toggleMenu(){
      this.utilsService.toggleMenu();
+  }
+  goBack(){
+    this.location.back();
   }
 
 }

@@ -6,13 +6,13 @@
           <ion-row>
            <ion-col class="avatar-container text-center">
              <img class="avatar" [src]="defaultAvatar" alt="Ecopub">
-             <p>{{user?.name}}</p>
+             <p class="text-white">{{user?.name}}</p>
            </ion-col>
          </ion-row>
        </ion-grid>
         <ion-list>
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
-            <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
+            <ion-item class="menu-item" [routerDirection]="'root'" [routerLink]="[p.url]" [class.active]="route.url == p.url">
               <ion-icon slot="start" [name]="p.icon"></ion-icon>
               <ion-label>
                 {{p.title}}

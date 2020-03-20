@@ -19,6 +19,7 @@ export class AddItemPage implements OnInit {
   fields: Array<any> = [];
   selectList: Array<[]> = [];
   @Input() fieldsModels: FieldModelBase<string>;
+  options: any = { componentRestrictions: { country: 'sn' } };
   form: FormGroup;
   backImg: string = environment.assetsUrl+'images/back.png';
   constructor(private navParams: NavParams, public modalController: ModalController,
@@ -104,5 +105,16 @@ export class AddItemPage implements OnInit {
         }
     })
   }
+
+
+    public handleAddressChange(event, key) {
+      let result = event.address_components;
+      let commune = result.find((r) => r.types.indexOf('sublocality_level_1') != -1);
+      let c = commune ? commune.long_name: event.name;
+      this.form.get(key+'').setValue(c);
+
+      this.form.get('lattitude').setValue(event.geometry.location.lat());
+      this.form.get('longitude').setValue(event.geometry.location.lng());
+      }
 
 }

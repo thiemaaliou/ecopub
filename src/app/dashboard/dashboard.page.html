@@ -10,7 +10,7 @@
             <img src="assets/images/avatar.png">
           </ion-avatar>
           <ion-label>
-            <h2 class="text-white">{{customerFirstName || 'ECOPUB'}} </h2>
+            <h2 class="text-white">{{user?.first_name}} {{user?.last_name}} </h2>
             <h3 class="text-white">Admin</h3>
           </ion-label>
         </ion-item>
@@ -52,7 +52,7 @@
         <ion-slide class="slide-elm" *ngFor="let menu of menus">
           <ion-item class="w-100 sliding-item-elm" lines="none">
             <ion-avatar slot="start" class="img-item">
-              <img src="assets/images/trash.png">
+              <img src="assets/images/icon-trash.png">
             </ion-avatar>
             <ion-label>
               <h3>{{menu?.title}}</h3>

@@ -16,7 +16,7 @@ import { environment } from 'src/environments/environment';
 })
 export class ModalInfosPage implements OnInit {
   params:  any;
-  data = {};
+  data: any = {};
   selectList: Array<[]> = [];
   @Input() fieldsModels: FieldModelBase<string>;
   form: FormGroup;
@@ -25,6 +25,7 @@ export class ModalInfosPage implements OnInit {
   havePub: boolean = false;
   publicities: Array<{}> = [{}];
   newPublicity: number;
+  user: any = {};
   constructor(private navParams: NavParams, public modalController: ModalController,
               private generalService: GeneralService, public alertController: AlertController,
               private utilsService: UtilsService) { }
@@ -33,6 +34,7 @@ export class ModalInfosPage implements OnInit {
     this.data = this.navParams.get('data');
     this.compareDates(this.data['publicity']);
     this.getAllPublicities();
+    this.user = JSON.parse(localStorage.getItem('ecopub-user'));
   }
 
   compareDates(publicity: any){
