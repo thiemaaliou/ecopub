@@ -1,6 +1,6 @@
 <ion-list class="list-client">
     <ion-item lines="none" *ngFor="let item of dataItems" class="client-item">
-       <ion-label class="text-client"> 
+       <ion-label class="text-client">
          <h4 class="clients">{{item?.name || item?.campaign_name}} </h4>
          <p class="content">
            <span class="pub" *ngIf="item?.name">{{item?.address}}</span>
@@ -11,7 +11,6 @@
             <ion-icon slot="end" name="trash" class="icon-trash"></ion-icon>
            </span>
          </p>
-       </ion-label> 
+       </ion-label>
     </ion-item>
 </ion-list>
-

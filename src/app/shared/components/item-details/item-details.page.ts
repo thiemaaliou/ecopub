@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Location } from '@angular/common';
 

@@ -24,25 +24,43 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-  <ion-grid>
+  <ion-grid class="white-bg" *ngIf="user.organization_id == 1">
     <ion-list-header class="pl-18 pr-18">
-      <b class="w-100">Emplacements clés</b>
+      <b class="w-100">Statistiques</b>
       <ion-icon class="arrow" name="chevron-forward" ></ion-icon>
     </ion-list-header>
-    <ion-row>
-      <ion-col size="6" size-md fixed *ngFor="let menu of menus">
+    <ion-list class="stats-list">
         <ion-item lines="none">
-          <ion-avatar slot="start" class="img-item">
-            <img src="assets/images/slide3.png">
-          </ion-avatar>
+          <ion-text slot="start">{{statistics?.products}}</ion-text>
           <ion-label>
-            <h3>{{menu?.title}}</h3>
+            <h3>Produits</h3>
+            <h4>disponible sur la plateforme</h4>
           </ion-label>
         </ion-item>
-      </ion-col>
-    </ion-row>
+        <ion-item lines="none">
+          <ion-text slot="start">{{statistics?.clients}}</ion-text>
+          <ion-label>
+            <h3>Clients</h3>
+            <h4>nous ont choisis</h4>
+          </ion-label>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-text slot="start">{{statistics?.publicities}}</ion-text>
+          <ion-label>
+            <h3>Publicités</h3>
+            <h4>sur l'ensemble de nos produits</h4>
+          </ion-label>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-text slot="start">{{statistics?.organizations}}</ion-text>
+          <ion-label>
+            <h3>Structures</h3>
+            <h4>partenaires de confiance</h4>
+          </ion-label>
+        </ion-item>
+    </ion-list>
   </ion-grid>
-  <ion-grid class="slider-section">
+  <!-- <ion-grid class="slider-section">
     <ion-list-header class="pl-18 pr-18">
       <b class="w-100">Emplacements</b>
       <ion-icon class="arrow" name="chevron-forward" ></ion-icon>
@@ -62,5 +80,5 @@
         </ion-slide>
       </ion-slides>
     </ion-row>
-  </ion-grid>
+  </ion-grid> -->
 </ion-content>

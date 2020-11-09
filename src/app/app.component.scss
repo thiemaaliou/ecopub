@@ -27,9 +27,14 @@
 
 .loader-content{
   background-color: #0000006b;
-  z-index: 999;
+  z-index: 99999;
   width: 100%;
   padding-top: 50%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
 }
 .ecopub{
   color: white;

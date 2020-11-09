@@ -123,6 +123,32 @@
   ion-list-header{
     position: relative;
   }
+  .stats-list {
+    padding: 5px 10px;
+      ion-text{
+        font-size: 1.8rem;
+        position: absolute;
+        min-width: 60px;
+        text-align: center;
+        height: 100%;
+        left: 0;
+        background: #0f8e38;
+        padding-top: 18px;
+        color: #fff;
+      }
+      ion-label{
+        padding-left: 80px;
+      }
+      ion-label h3{
+        font-size: 1.5rem;
+      }
+       ion-item{
+        box-shadow: 0px 0px 10px #67646459;
+        margin: 18px 0;
+        border-radius: 10px;
+
+      }
+    }
 
 }
 .tab-menu{

@@ -12,7 +12,7 @@ import { Platform } from '@ionic/angular';
   styleUrls: ['./list-items.page.scss'],
 })
 export class ListItemsPage implements OnInit {
-  @Input() params:  any;
+  public _params:  any;
   dataItems: Array<{}> = [];
   constructor(private generalService: GeneralService, public alertController: AlertController,
               private utilsService: UtilsService, private route: Router, private nativeStorage: NativeStorage,
@@ -22,9 +22,14 @@ export class ListItemsPage implements OnInit {
     this.getList();
   }
 
-  ngOnChanges(changes: SimpleChange) {
+  @Input() set params(value: string) {
+    this._params = value;
     this.getList();
-  }
+ }
+
+ get params(): string {
+     return this._params;
+ }
 
   getList(){
     this.generalService.getSelectList(this.params).subscribe((resp) => {
@@ -35,7 +40,7 @@ export class ListItemsPage implements OnInit {
 
   showMoreInfos(item){
     item = {
-      ...this.params,
+      ...this._params,
       ...item
     };
     this.generalService.getDetailsItem(item).subscribe((resp) =>{

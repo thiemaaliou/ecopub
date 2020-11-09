@@ -6,7 +6,7 @@ export const message = {
   expiryPublicity: 'Publicité Expirée',
   disponible: 'Produit Disponible',
   busy: 'Occupation en cours',
-
+  canDisconnect: "Voulez-vous vraiment vous déconnecter ?"
 }
 export const label = {
   title: ["Innover pour mieux servir", "Pour un sénégal propre", "Plus proche de vos clients"],

@@ -19,6 +19,7 @@ import { UtilsService } from '../services/utils.service';
 export class ClientsPage implements OnInit {
   public clients: Array<any> = [];
   listParams: any = {
+      state: 0,
       pageTitle: "Ajouer un client",
       url: "clients",
       component: "clients",
@@ -59,7 +60,9 @@ export class ClientsPage implements OnInit {
 
   modal.onDidDismiss().then((resp) =>{
     if(resp['data'] != undefined && resp['data']['data'] != undefined){
-      this.clients.push(resp['data']['data']);
+      this.listParams.state+=1;
+      console.log(this.listParams);
+
     }
   })
    return await modal.present();
@@ -68,7 +71,5 @@ export class ClientsPage implements OnInit {
  toggleMenu(){
    this.utilsService.toggleMenu();
  }
-
-
 
 }

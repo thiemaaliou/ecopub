@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild} from '@angular/core';
 import { IonSlides, MenuController } from '@ionic/angular';
 import { SlideHomeOne, SlideHomeCard} from '../helpers/constants';
 import { Router } from '@angular/router';
+import { GeneralService } from '../services/general.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -54,10 +55,16 @@ export class DashboardPage implements OnInit {
     }
   ];
   user: any;
-  constructor(private menuController: MenuController) { }
+  statistics: any = {};
+  constructor(private menuController: MenuController, private generalService: GeneralService) { }
 
   ngOnInit() {
     this.user = JSON.parse(localStorage.getItem('ecopub-user'));
+  }
+  ngAfterViewInit(){
+    this.generalService.getStatistics().subscribe((resp) => {
+        this.statistics = resp['data'];
+    });
   }
 
   toggleMenu(){

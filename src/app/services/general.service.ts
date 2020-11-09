@@ -48,4 +48,8 @@ export class GeneralService {
    getDetailsItem(item){
      return this.httpClient.get(environment.apiUrl+''+item.url+'/'+item.id).pipe(response => response);
    }
+
+   getStatistics(){
+     return this.httpClient.get(environment.apiUrl+'statistics').pipe(response => response);
+   }
 }
